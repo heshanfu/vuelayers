@@ -3061,8 +3061,8 @@ _highlight2.default.registerLanguage('scss', _scss2.default); //
 
 _highlight2.default.registerLanguage('xml', _xml2.default);
 _highlight2.default.registerLanguage('javascript', _javascript2.default);
-_highlight2.default.registerLanguage('javascript', _json2.default);
-_highlight2.default.registerLanguage('javascript', _bash2.default);
+_highlight2.default.registerLanguage('json', _json2.default);
+_highlight2.default.registerLanguage('bash', _bash2.default);
 
 var methods = {
   geometryTypeToCompName: function geometryTypeToCompName(type) {
@@ -8232,4 +8232,4 @@ exports.coord = _coord;
 /***/ })
 
 },[749]);
-//# sourceMappingURL=app.3a0ee2045fe1aa9300bd.js.map
+//# sourceMappingURL=app.d6c04f7a02936199460f.js.map
