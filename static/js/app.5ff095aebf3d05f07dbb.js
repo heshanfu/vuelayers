@@ -2146,7 +2146,9 @@ var _func = __webpack_require__(76);
 
 var _consts = __webpack_require__(48);
 
-var _consts2 = _interopRequireDefault(_consts);
+var consts = _interopRequireWildcard(_consts);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2509,7 +2511,7 @@ function defaultEditStyle() {
   var blue = [0, 153, 255, 1];
   var width = 3;
 
-  styles[_consts2.default.GEOMETRY_TYPE.LINE_STRING] = [new _openlayers2.default.style.Style({
+  styles[consts.GEOMETRY_TYPE.LINE_STRING] = [new _openlayers2.default.style.Style({
     stroke: new _openlayers2.default.style.Stroke({
       color: white,
       width: width + 2
@@ -2520,18 +2522,18 @@ function defaultEditStyle() {
       width: width
     })
   })];
-  styles[_consts2.default.GEOMETRY_TYPE.MULTI_LINE_STRING] = styles[_consts2.default.GEOMETRY_TYPE.LINE_STRING];
+  styles[consts.GEOMETRY_TYPE.MULTI_LINE_STRING] = styles[consts.GEOMETRY_TYPE.LINE_STRING];
 
-  styles[_consts2.default.GEOMETRY_TYPE.POLYGON] = [new _openlayers2.default.style.Style({
+  styles[consts.GEOMETRY_TYPE.POLYGON] = [new _openlayers2.default.style.Style({
     fill: new _openlayers2.default.style.Fill({
       color: [255, 255, 255, 0.5]
     })
-  })].concat(styles[_consts2.default.GEOMETRY_TYPE.LINE_STRING]);
-  styles[_consts2.default.GEOMETRY_TYPE.MULTI_POLYGON] = styles[_consts2.default.GEOMETRY_TYPE.POLYGON];
+  })].concat(styles[consts.GEOMETRY_TYPE.LINE_STRING]);
+  styles[consts.GEOMETRY_TYPE.MULTI_POLYGON] = styles[consts.GEOMETRY_TYPE.POLYGON];
 
-  styles[_consts2.default.GEOMETRY_TYPE.CIRCLE] = styles[_consts2.default.GEOMETRY_TYPE.POLYGON].concat(styles[_consts2.default.GEOMETRY_TYPE.LINE_STRING]);
+  styles[consts.GEOMETRY_TYPE.CIRCLE] = styles[consts.GEOMETRY_TYPE.POLYGON].concat(styles[consts.GEOMETRY_TYPE.LINE_STRING]);
 
-  styles[_consts2.default.GEOMETRY_TYPE.POINT] = [new _openlayers2.default.style.Style({
+  styles[consts.GEOMETRY_TYPE.POINT] = [new _openlayers2.default.style.Style({
     image: new _openlayers2.default.style.Circle({
       radius: width * 2,
       fill: new _openlayers2.default.style.Fill({
@@ -2544,9 +2546,9 @@ function defaultEditStyle() {
     }),
     zIndex: Infinity
   })];
-  styles[_consts2.default.GEOMETRY_TYPE.MULTI_POINT] = styles[_consts2.default.GEOMETRY_TYPE.POINT];
+  styles[consts.GEOMETRY_TYPE.MULTI_POINT] = styles[consts.GEOMETRY_TYPE.POINT];
 
-  styles[_consts2.default.GEOMETRY_TYPE.GEOMETRY_COLLECTION] = styles[_consts2.default.GEOMETRY_TYPE.POLYGON].concat(styles[_consts2.default.GEOMETRY_TYPE.LINE_STRING], styles[_consts2.default.GEOMETRY_TYPE.POINT]);
+  styles[consts.GEOMETRY_TYPE.GEOMETRY_COLLECTION] = styles[consts.GEOMETRY_TYPE.POLYGON].concat(styles[consts.GEOMETRY_TYPE.LINE_STRING], styles[consts.GEOMETRY_TYPE.POINT]);
 
   return styles;
 }
@@ -8112,4 +8114,4 @@ exports.coord = _coord;
 /***/ })
 
 },[749]);
-//# sourceMappingURL=app.3d3d5e451b8261f652d0.js.map
+//# sourceMappingURL=app.5ff095aebf3d05f07dbb.js.map
