@@ -4543,7 +4543,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var props = {
   url: {
     type: String,
-    default: 'http://{a-c}.tiles.mapbox.com/v4/{mapId}/{z}/{x}/{y}{tileNameSuffix}.{tileFormat}?access_token={accessToken}'
+    default: 'https://{a-c}.tiles.mapbox.com/v4/{mapId}/{z}/{x}/{y}{tileNameSuffix}.{tileFormat}?access_token={accessToken}'
   },
   accessToken: {
     type: String,
@@ -7054,4 +7054,4 @@ if(false) {
 
 /***/ })
 ],[95]);
-//# sourceMappingURL=vuelayers.82d69039186225027ec9.js.map
+//# sourceMappingURL=vuelayers.fdfa95f55d21398acea8.js.map

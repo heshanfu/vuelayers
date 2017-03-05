@@ -2858,7 +2858,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var props = {
   url: {
     type: String,
-    default: 'http://{a-c}.tiles.mapbox.com/v4/{mapId}/{z}/{x}/{y}{tileNameSuffix}.{tileFormat}?access_token={accessToken}'
+    default: 'https://{a-c}.tiles.mapbox.com/v4/{mapId}/{z}/{x}/{y}{tileNameSuffix}.{tileFormat}?access_token={accessToken}'
   },
   accessToken: {
     type: String,
@@ -7539,7 +7539,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('vl-style-container', [_c('vl-style-icon', {
     attrs: {
-      "src": "/static/img/marker.png",
+      "src": "static/img/marker.png",
       "scale": 0.3,
       "anchor": [0.5, 1]
     }
@@ -8097,4 +8097,4 @@ exports.default = _geom2.default;
 /***/ })
 
 },[749]);
-//# sourceMappingURL=app.d5105a9803c0206b2acc.js.map
+//# sourceMappingURL=app.5b0c925f96c9c6b33795.js.map
