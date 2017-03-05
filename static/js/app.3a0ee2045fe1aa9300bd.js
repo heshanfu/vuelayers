@@ -241,7 +241,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _pick2 = __webpack_require__(196);
+var _pick2 = __webpack_require__(198);
 
 var _pick3 = _interopRequireDefault(_pick2);
 
@@ -522,7 +522,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray2 = __webpack_require__(273);
+var _slicedToArray2 = __webpack_require__(275);
 
 var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 
@@ -694,7 +694,7 @@ function subscribeToGeomChanges() {
 
 /***/ }),
 
-/***/ 211:
+/***/ 213:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -712,15 +712,15 @@ var _forEach2 = __webpack_require__(110);
 
 var _forEach3 = _interopRequireDefault(_forEach2);
 
-var _merge2 = __webpack_require__(194);
+var _merge2 = __webpack_require__(196);
 
 var _merge3 = _interopRequireDefault(_merge2);
 
-var _omit2 = __webpack_require__(195);
+var _omit2 = __webpack_require__(197);
 
 var _omit3 = _interopRequireDefault(_omit2);
 
-var _components = __webpack_require__(222);
+var _components = __webpack_require__(224);
 
 var components = _interopRequireWildcard(_components);
 
@@ -761,7 +761,7 @@ exports.default = (0, _extends3.default)({
 
 /***/ }),
 
-/***/ 212:
+/***/ 214:
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -770,7 +770,7 @@ __webpack_require__(740)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(247),
+  __webpack_require__(249),
   /* template */
   __webpack_require__(722),
   /* scopeId */
@@ -800,7 +800,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 213:
+/***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -824,7 +824,7 @@ exports.default = _feature2.default;
 
 /***/ }),
 
-/***/ 214:
+/***/ 216:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -848,7 +848,7 @@ exports.default = _geoloc2.default;
 
 /***/ }),
 
-/***/ 215:
+/***/ 217:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -863,27 +863,27 @@ var _geom = __webpack_require__(16);
 
 var _geom2 = _interopRequireDefault(_geom);
 
-var _point = __webpack_require__(220);
+var _point = __webpack_require__(222);
 
 var _point2 = _interopRequireDefault(_point);
 
-var _lineString = __webpack_require__(216);
+var _lineString = __webpack_require__(218);
 
 var _lineString2 = _interopRequireDefault(_lineString);
 
-var _polygon = __webpack_require__(221);
+var _polygon = __webpack_require__(223);
 
 var _polygon2 = _interopRequireDefault(_polygon);
 
-var _multiPoint = __webpack_require__(218);
+var _multiPoint = __webpack_require__(220);
 
 var _multiPoint2 = _interopRequireDefault(_multiPoint);
 
-var _multiLineString = __webpack_require__(217);
+var _multiLineString = __webpack_require__(219);
 
 var _multiLineString2 = _interopRequireDefault(_multiLineString);
 
-var _multiPolygon = __webpack_require__(219);
+var _multiPolygon = __webpack_require__(221);
 
 var _multiPolygon2 = _interopRequireDefault(_multiPolygon);
 
@@ -901,7 +901,7 @@ var mixins = exports.mixins = {
 
 /***/ }),
 
-/***/ 216:
+/***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -925,54 +925,6 @@ exports.default = _geom2.default;
 
 /***/ }),
 
-/***/ 217:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _geom = __webpack_require__(701);
-
-var _geom2 = _interopRequireDefault(_geom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_geom2.default.install = function (Vue) {
-  Vue.component(_geom2.default.name, _geom2.default);
-};
-
-exports.default = _geom2.default;
-
-/***/ }),
-
-/***/ 218:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _geom = __webpack_require__(702);
-
-var _geom2 = _interopRequireDefault(_geom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_geom2.default.install = function (Vue) {
-  Vue.component(_geom2.default.name, _geom2.default);
-};
-
-exports.default = _geom2.default;
-
-/***/ }),
-
 /***/ 219:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -983,7 +935,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _geom = __webpack_require__(703);
+var _geom = __webpack_require__(701);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -1053,7 +1005,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _geom = __webpack_require__(704);
+var _geom = __webpack_require__(702);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -1077,7 +1029,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _geom = __webpack_require__(705);
+var _geom = __webpack_require__(703);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -1100,41 +1052,89 @@ exports.default = _geom2.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _geom = __webpack_require__(704);
+
+var _geom2 = _interopRequireDefault(_geom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_geom2.default.install = function (Vue) {
+  Vue.component(_geom2.default.name, _geom2.default);
+};
+
+exports.default = _geom2.default;
+
+/***/ }),
+
+/***/ 223:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _geom = __webpack_require__(705);
+
+var _geom2 = _interopRequireDefault(_geom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_geom2.default.install = function (Vue) {
+  Vue.component(_geom2.default.name, _geom2.default);
+};
+
+exports.default = _geom2.default;
+
+/***/ }),
+
+/***/ 224:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.interaction = exports.style = exports.source = exports.layer = exports.geom = exports.VlGeoloc = exports.VlFeature = exports.VlMapView = exports.VlMap = undefined;
 
-var _map = __webpack_require__(229);
+var _map = __webpack_require__(231);
 
 var _map2 = _interopRequireDefault(_map);
 
-var _mapView = __webpack_require__(228);
+var _mapView = __webpack_require__(230);
 
 var _mapView2 = _interopRequireDefault(_mapView);
 
-var _feature = __webpack_require__(213);
+var _feature = __webpack_require__(215);
 
 var _feature2 = _interopRequireDefault(_feature);
 
-var _geoloc = __webpack_require__(214);
+var _geoloc = __webpack_require__(216);
 
 var _geoloc2 = _interopRequireDefault(_geoloc);
 
-var _geom2 = __webpack_require__(215);
+var _geom2 = __webpack_require__(217);
 
 var _geom = _interopRequireWildcard(_geom2);
 
-var _layer2 = __webpack_require__(225);
+var _layer2 = __webpack_require__(227);
 
 var _layer = _interopRequireWildcard(_layer2);
 
-var _source2 = __webpack_require__(230);
+var _source2 = __webpack_require__(232);
 
 var _source = _interopRequireWildcard(_source2);
 
-var _style2 = __webpack_require__(241);
+var _style2 = __webpack_require__(243);
 
 var _style = _interopRequireWildcard(_style2);
 
-var _interaction2 = __webpack_require__(223);
+var _interaction2 = __webpack_require__(225);
 
 var _interaction = _interopRequireWildcard(_interaction2);
 
@@ -1154,7 +1154,7 @@ exports.interaction = _interaction;
 
 /***/ }),
 
-/***/ 223:
+/***/ 225:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1169,7 +1169,7 @@ var _interaction = __webpack_require__(122);
 
 var _interaction2 = _interopRequireDefault(_interaction);
 
-var _select = __webpack_require__(224);
+var _select = __webpack_require__(226);
 
 var _select2 = _interopRequireDefault(_select);
 
@@ -1182,7 +1182,7 @@ var mixins = exports.mixins = {
 
 /***/ }),
 
-/***/ 224:
+/***/ 226:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1206,7 +1206,7 @@ exports.default = _select2.default;
 
 /***/ }),
 
-/***/ 225:
+/***/ 227:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1229,11 +1229,11 @@ var _vectorBase = __webpack_require__(124);
 
 var _vectorBase2 = _interopRequireDefault(_vectorBase);
 
-var _vector = __webpack_require__(227);
+var _vector = __webpack_require__(229);
 
 var _vector2 = _interopRequireDefault(_vector);
 
-var _tile = __webpack_require__(226);
+var _tile = __webpack_require__(228);
 
 var _tile2 = _interopRequireDefault(_tile);
 
@@ -1249,7 +1249,7 @@ var mixins = exports.mixins = {
 
 /***/ }),
 
-/***/ 226:
+/***/ 228:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1273,7 +1273,7 @@ exports.default = _layer2.default;
 
 /***/ }),
 
-/***/ 227:
+/***/ 229:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1297,7 +1297,7 @@ exports.default = _layer2.default;
 
 /***/ }),
 
-/***/ 228:
+/***/ 230:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1321,7 +1321,7 @@ exports.default = _view2.default;
 
 /***/ }),
 
-/***/ 229:
+/***/ 231:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1346,7 +1346,7 @@ exports.default = _map2.default;
 
 /***/ }),
 
-/***/ 230:
+/***/ 232:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1373,19 +1373,19 @@ var _vectorBase = __webpack_require__(126);
 
 var _vectorBase2 = _interopRequireDefault(_vectorBase);
 
-var _xyz = __webpack_require__(234);
+var _xyz = __webpack_require__(236);
 
 var _xyz2 = _interopRequireDefault(_xyz);
 
-var _osm = __webpack_require__(232);
+var _osm = __webpack_require__(234);
 
 var _osm2 = _interopRequireDefault(_osm);
 
-var _mapbox = __webpack_require__(231);
+var _mapbox = __webpack_require__(233);
 
 var _mapbox2 = _interopRequireDefault(_mapbox);
 
-var _vector = __webpack_require__(233);
+var _vector = __webpack_require__(235);
 
 var _vector2 = _interopRequireDefault(_vector);
 
@@ -1404,7 +1404,7 @@ var mixins = exports.mixins = {
 
 /***/ }),
 
-/***/ 231:
+/***/ 233:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1428,7 +1428,7 @@ exports.default = _source2.default;
 
 /***/ }),
 
-/***/ 232:
+/***/ 234:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1452,7 +1452,7 @@ exports.default = _source2.default;
 
 /***/ }),
 
-/***/ 233:
+/***/ 235:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1476,7 +1476,7 @@ exports.default = _source2.default;
 
 /***/ }),
 
-/***/ 234:
+/***/ 236:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1500,7 +1500,7 @@ exports.default = _source2.default;
 
 /***/ }),
 
-/***/ 235:
+/***/ 237:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1524,7 +1524,7 @@ exports.default = _circle2.default;
 
 /***/ }),
 
-/***/ 236:
+/***/ 238:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1548,7 +1548,7 @@ exports.default = _container2.default;
 
 /***/ }),
 
-/***/ 237:
+/***/ 239:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1572,7 +1572,7 @@ exports.default = _fill2.default;
 
 /***/ }),
 
-/***/ 238:
+/***/ 240:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1644,7 +1644,7 @@ function bindStyleFunction(styleFunc, component) {
 
 /***/ }),
 
-/***/ 239:
+/***/ 241:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1654,7 +1654,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _func = __webpack_require__(238);
+var _func = __webpack_require__(240);
 
 var _func2 = _interopRequireDefault(_func);
 
@@ -1667,7 +1667,7 @@ exports.default = _func2.default;
 
 /***/ }),
 
-/***/ 240:
+/***/ 242:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1691,7 +1691,7 @@ exports.default = _icon2.default;
 
 /***/ }),
 
-/***/ 241:
+/***/ 243:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1714,27 +1714,27 @@ var _target = __webpack_require__(35);
 
 var _target2 = _interopRequireDefault(_target);
 
-var _func = __webpack_require__(239);
+var _func = __webpack_require__(241);
 
 var _func2 = _interopRequireDefault(_func);
 
-var _container = __webpack_require__(236);
+var _container = __webpack_require__(238);
 
 var _container2 = _interopRequireDefault(_container);
 
-var _fill = __webpack_require__(237);
+var _fill = __webpack_require__(239);
 
 var _fill2 = _interopRequireDefault(_fill);
 
-var _stroke = __webpack_require__(242);
+var _stroke = __webpack_require__(244);
 
 var _stroke2 = _interopRequireDefault(_stroke);
 
-var _circle = __webpack_require__(235);
+var _circle = __webpack_require__(237);
 
 var _circle2 = _interopRequireDefault(_circle);
 
-var _icon = __webpack_require__(240);
+var _icon = __webpack_require__(242);
 
 var _icon2 = _interopRequireDefault(_icon);
 
@@ -1757,7 +1757,7 @@ var directives = exports.directives = {
 
 /***/ }),
 
-/***/ 242:
+/***/ 244:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1781,7 +1781,7 @@ exports.default = _stroke2.default;
 
 /***/ }),
 
-/***/ 243:
+/***/ 245:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1951,7 +1951,7 @@ var coordTransform = exports.coordTransform = {
 
 /***/ }),
 
-/***/ 244:
+/***/ 246:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1965,7 +1965,7 @@ var _promise = __webpack_require__(50);
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _log = __webpack_require__(272);
+var _log = __webpack_require__(274);
 
 var _log2 = _interopRequireDefault(_log);
 
@@ -2081,7 +2081,7 @@ function flyTo(view, coordinate, zoom) {
 
 /***/ }),
 
-/***/ 245:
+/***/ 247:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2104,7 +2104,7 @@ var _reduce2 = __webpack_require__(641);
 
 var _reduce3 = _interopRequireDefault(_reduce2);
 
-var _merge2 = __webpack_require__(194);
+var _merge2 = __webpack_require__(196);
 
 var _merge3 = _interopRequireDefault(_merge2);
 
@@ -2120,7 +2120,7 @@ var _upperFirst2 = __webpack_require__(643);
 
 var _upperFirst3 = _interopRequireDefault(_upperFirst2);
 
-var _pick2 = __webpack_require__(196);
+var _pick2 = __webpack_require__(198);
 
 var _pick3 = _interopRequireDefault(_pick2);
 
@@ -2555,7 +2555,7 @@ function defaultEditStyle() {
 
 /***/ }),
 
-/***/ 246:
+/***/ 248:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2599,7 +2599,7 @@ _Observable.Observable.fromOlEvent = fromOlEvent;
 
 /***/ }),
 
-/***/ 247:
+/***/ 249:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2625,27 +2625,35 @@ var _forEach2 = __webpack_require__(110);
 
 var _forEach3 = _interopRequireDefault(_forEach2);
 
-var _kebabCase2 = __webpack_require__(193);
+var _kebabCase2 = __webpack_require__(195);
 
 var _kebabCase3 = _interopRequireDefault(_kebabCase2);
 
 __webpack_require__(748);
 
-var _highlight = __webpack_require__(340);
+var _highlight = __webpack_require__(342);
 
 var _highlight2 = _interopRequireDefault(_highlight);
 
-var _scss = __webpack_require__(143);
+var _scss = __webpack_require__(145);
 
 var _scss2 = _interopRequireDefault(_scss);
 
-var _xml = __webpack_require__(144);
+var _xml = __webpack_require__(146);
 
 var _xml2 = _interopRequireDefault(_xml);
 
-var _javascript = __webpack_require__(142);
+var _javascript = __webpack_require__(143);
 
 var _javascript2 = _interopRequireDefault(_javascript);
+
+var _bash = __webpack_require__(142);
+
+var _bash2 = _interopRequireDefault(_bash);
+
+var _json = __webpack_require__(144);
+
+var _json2 = _interopRequireDefault(_json);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2974,9 +2982,87 @@ _highlight2.default.registerLanguage('scss', _scss2.default); //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 _highlight2.default.registerLanguage('xml', _xml2.default);
 _highlight2.default.registerLanguage('javascript', _javascript2.default);
+_highlight2.default.registerLanguage('javascript', _json2.default);
+_highlight2.default.registerLanguage('javascript', _bash2.default);
 
 var methods = {
   geometryTypeToCompName: function geometryTypeToCompName(type) {
@@ -3143,7 +3229,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 248:
+/***/ 250:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3157,7 +3243,7 @@ var _extends2 = __webpack_require__(23);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _omit2 = __webpack_require__(195);
+var _omit2 = __webpack_require__(197);
 
 var _omit3 = _interopRequireDefault(_omit2);
 
@@ -3165,7 +3251,7 @@ var _openlayers = __webpack_require__(0);
 
 var _openlayers2 = _interopRequireDefault(_openlayers);
 
-var _v = __webpack_require__(210);
+var _v = __webpack_require__(212);
 
 var _v2 = _interopRequireDefault(_v);
 
@@ -3293,7 +3379,7 @@ function createFeature() {
 
 /***/ }),
 
-/***/ 249:
+/***/ 251:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3313,7 +3399,7 @@ var _openlayers2 = _interopRequireDefault(_openlayers);
 
 var _Observable = __webpack_require__(7);
 
-__webpack_require__(203);
+__webpack_require__(205);
 
 __webpack_require__(114);
 
@@ -3443,7 +3529,7 @@ function subscribeToGeolocation() {
 
 /***/ }),
 
-/***/ 250:
+/***/ 252:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3490,7 +3576,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 251:
+/***/ 253:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3537,7 +3623,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 252:
+/***/ 254:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3584,7 +3670,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 253:
+/***/ 255:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3631,7 +3717,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 254:
+/***/ 256:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3682,7 +3768,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 255:
+/***/ 257:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3729,7 +3815,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 256:
+/***/ 258:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3935,7 +4021,7 @@ function subscribeToInteractionChanges() {
 
 /***/ }),
 
-/***/ 257:
+/***/ 259:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3958,7 +4044,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 258:
+/***/ 260:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3981,7 +4067,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 259:
+/***/ 261:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4111,7 +4197,7 @@ function createMap() {
 
 /***/ }),
 
-/***/ 260:
+/***/ 262:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4139,7 +4225,7 @@ var _openlayers2 = _interopRequireDefault(_openlayers);
 
 var _Observable = __webpack_require__(7);
 
-__webpack_require__(203);
+__webpack_require__(205);
 
 __webpack_require__(114);
 
@@ -4375,7 +4461,7 @@ function subscribeToViewChanges() {
 
 /***/ }),
 
-/***/ 261:
+/***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4457,7 +4543,7 @@ function _tileNameSuffix(ratio) {
 
 /***/ }),
 
-/***/ 262:
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4512,7 +4598,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 263:
+/***/ 265:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4535,7 +4621,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 264:
+/***/ 266:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4558,7 +4644,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 265:
+/***/ 267:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4648,7 +4734,7 @@ function setStroke(stroke) {
 
 /***/ }),
 
-/***/ 266:
+/***/ 268:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4800,7 +4886,7 @@ function setImage(image) {
 
 /***/ }),
 
-/***/ 267:
+/***/ 269:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4871,7 +4957,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 268:
+/***/ 270:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5003,7 +5089,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 269:
+/***/ 271:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5113,36 +5199,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ 315:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)();
-// imports
-
-
-// module
-exports.push([module.i, "/*\nDate: 24 Fev 2015\nAuthor: Pedro Oliveira <kanytu@gmail . com>\n*/\n\n.hljs {\n  color: #a9b7c6;\n  background: #282b2e;\n  display: block;\n  overflow-x: auto;\n  padding: 0.5em;\n}\n\n.hljs-number,\n.hljs-literal,\n.hljs-symbol,\n.hljs-bullet {\n  color: #6897BB;\n}\n\n.hljs-keyword,\n.hljs-selector-tag,\n.hljs-deletion {\n  color: #cc7832;\n}\n\n.hljs-variable,\n.hljs-template-variable,\n.hljs-link {\n  color: #629755;\n}\n\n.hljs-comment,\n.hljs-quote {\n  color: #808080;\n}\n\n.hljs-meta {\n  color: #bbb529;\n}\n\n.hljs-string,\n.hljs-attribute,\n.hljs-addition {\n  color: #6A8759;\n}\n\n.hljs-section,\n.hljs-title,\n.hljs-type {\n  color: #ffc66d;\n}\n\n.hljs-name,\n.hljs-selector-id,\n.hljs-selector-class {\n  color: #e8bf6a;\n}\n\n.hljs-emphasis {\n  font-style: italic;\n}\n\n.hljs-strong {\n  font-weight: bold;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 316:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)();
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ 317:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5151,7 +5207,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "/*\nDate: 24 Fev 2015\nAuthor: Pedro Oliveira <kanytu@gmail . com>\n*/\n\n.hljs {\n  color: #a9b7c6;\n  background: #282b2e;\n  display: block;\n  overflow-x: auto;\n  padding: 0.5em;\n}\n\n.hljs-number,\n.hljs-literal,\n.hljs-symbol,\n.hljs-bullet {\n  color: #6897BB;\n}\n\n.hljs-keyword,\n.hljs-selector-tag,\n.hljs-deletion {\n  color: #cc7832;\n}\n\n.hljs-variable,\n.hljs-template-variable,\n.hljs-link {\n  color: #629755;\n}\n\n.hljs-comment,\n.hljs-quote {\n  color: #808080;\n}\n\n.hljs-meta {\n  color: #bbb529;\n}\n\n.hljs-string,\n.hljs-attribute,\n.hljs-addition {\n  color: #6A8759;\n}\n\n.hljs-section,\n.hljs-title,\n.hljs-type {\n  color: #ffc66d;\n}\n\n.hljs-name,\n.hljs-selector-id,\n.hljs-selector-class {\n  color: #e8bf6a;\n}\n\n.hljs-emphasis {\n  font-style: italic;\n}\n\n.hljs-strong {\n  font-weight: bold;\n}\n", ""]);
 
 // exports
 
@@ -5181,7 +5237,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5196,7 +5252,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5226,7 +5282,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5241,7 +5297,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5256,7 +5312,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5271,7 +5327,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5286,7 +5342,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5301,7 +5357,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5316,7 +5372,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5331,7 +5387,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5346,7 +5402,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5361,7 +5417,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "/**\n * VueLayers SCSS mixins.\n * This part of the VueLayers package.\n */\n.ol-control, .ol-scale-line {\n  position: absolute;\n  padding: 2px;\n}\n.ol-box {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  border-radius: 2px;\n  border: 2px solid #00f;\n}\n.ol-mouse-position {\n  top: 8px;\n  right: 8px;\n  position: absolute;\n}\n.ol-scale-line {\n  background: rgba(0, 60, 136, 0.3);\n  border-radius: 4px;\n  bottom: 8px;\n  left: 8px;\n}\n.ol-scale-line-inner {\n  border: 1px solid #eee;\n  border-top: none;\n  color: #eee;\n  font-size: 10px;\n  text-align: center;\n  margin: 1px;\n  will-change: contents,width;\n}\n.ol-overlay-container {\n  will-change: left,right,top,bottom;\n}\n.ol-unsupported {\n  display: none;\n}\n.ol-viewport .ol-unselectable {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n}\n.ol-control {\n  background-color: rgba(255, 255, 255, 0.4);\n  border-radius: 4px;\n}\n.ol-control:hover {\n  background-color: rgba(255, 255, 255, 0.6);\n}\n.ol-zoom {\n  top: .5em;\n  left: .5em;\n}\n.ol-rotate {\n  top: .5em;\n  right: .5em;\n  -webkit-transition: opacity .25s linear,visibility 0s linear;\n  transition: opacity .25s linear,visibility 0s linear;\n}\n.ol-rotate.ol-hidden {\n  opacity: 0;\n  visibility: hidden;\n  -webkit-transition: opacity .25s linear,visibility 0s linear .25s;\n  transition: opacity .25s linear,visibility 0s linear .25s;\n}\n.ol-zoom-extent {\n  top: 4.643em;\n  left: .5em;\n}\n.ol-full-screen {\n  right: .5em;\n  top: .5em;\n}\n@media print {\n.ol-control {\n    display: none;\n}\n}\n.ol-control button {\n  display: block;\n  margin: 1px;\n  padding: 0;\n  color: #fff;\n  font-size: 1.14em;\n  font-weight: 700;\n  text-decoration: none;\n  text-align: center;\n  height: 1.375em;\n  width: 1.375em;\n  line-height: .4em;\n  background-color: rgba(0, 60, 136, 0.5);\n  border: none;\n  border-radius: 2px;\n}\n.ol-control button::-moz-focus-inner {\n  border: none;\n  padding: 0;\n}\n.ol-zoom-extent button {\n  line-height: 1.4em;\n}\n.ol-compass {\n  display: block;\n  font-weight: 400;\n  font-size: 1.2em;\n  will-change: transform;\n}\n.ol-touch .ol-control button {\n  font-size: 1.5em;\n}\n.ol-touch .ol-zoom-extent {\n  top: 5.5em;\n}\n.ol-control button:focus, .ol-control button:hover {\n  text-decoration: none;\n  background-color: rgba(0, 60, 136, 0.7);\n}\n.ol-zoom .ol-zoom-in {\n  border-radius: 2px 2px 0 0;\n}\n.ol-zoom .ol-zoom-out {\n  border-radius: 0 0 2px 2px;\n}\n.ol-attribution {\n  text-align: right;\n  bottom: .5em;\n  right: .5em;\n  max-width: -webkit-calc(100% - 1.3em);\n  max-width: calc(100% - 1.3em);\n}\n.ol-attribution ul {\n  margin: 0;\n  padding: 0 .5em;\n  font-size: .7rem;\n  line-height: 1.375em;\n  color: #000;\n  text-shadow: 0 0 2px #fff;\n}\n.ol-attribution li {\n  display: inline;\n  list-style: none;\n  line-height: inherit;\n}\n.ol-attribution li:not(:last-child):after {\n  content: \" \";\n}\n.ol-attribution img {\n  max-height: 2em;\n  max-width: inherit;\n  vertical-align: middle;\n}\n.ol-attribution button, .ol-attribution ul {\n  display: inline-block;\n}\n.ol-attribution.ol-collapsed ul {\n  display: none;\n}\n.ol-attribution.ol-logo-only ul {\n  display: block;\n}\n.ol-attribution:not(.ol-collapsed) {\n  background: rgba(255, 255, 255, 0.8);\n}\n.ol-attribution.ol-uncollapsible {\n  bottom: 0;\n  right: 0;\n  border-radius: 4px 0 0;\n  height: 1.1em;\n  line-height: 1em;\n}\n.ol-attribution.ol-logo-only {\n  background: 0 0;\n  bottom: .4em;\n  height: 1.1em;\n  line-height: 1em;\n}\n.ol-attribution.ol-uncollapsible img {\n  margin-top: -.2em;\n  max-height: 1.6em;\n}\n.ol-attribution.ol-logo-only button, .ol-attribution.ol-uncollapsible button {\n  display: none;\n}\n.ol-zoomslider {\n  top: 4.5em;\n  left: .5em;\n  height: 200px;\n}\n.ol-zoomslider button {\n  position: relative;\n  height: 10px;\n}\n.ol-touch .ol-zoomslider {\n  top: 5.5em;\n}\n.ol-overviewmap {\n  left: .5em;\n  bottom: .5em;\n}\n.ol-overviewmap.ol-uncollapsible {\n  bottom: 0;\n  left: 0;\n  border-radius: 0 4px 0 0;\n}\n.ol-overviewmap .ol-overviewmap-map, .ol-overviewmap button {\n  display: inline-block;\n}\n.ol-overviewmap .ol-overviewmap-map {\n  border: 1px solid #7b98bc;\n  height: 150px;\n  margin: 2px;\n  width: 150px;\n}\n.ol-overviewmap:not(.ol-collapsed) button {\n  bottom: 1px;\n  left: 2px;\n  position: absolute;\n}\n.ol-overviewmap.ol-collapsed .ol-overviewmap-map, .ol-overviewmap.ol-uncollapsible button {\n  display: none;\n}\n.ol-overviewmap:not(.ol-collapsed) {\n  background: rgba(255, 255, 255, 0.8);\n}\n.ol-overviewmap-box {\n  border: 2px dotted rgba(0, 60, 136, 0.7);\n}\n.vl-map, .vl-map .map {\n  width: 100%;\n  height: 100%;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5373,10 +5429,10 @@ exports.push([module.i, "/**\n * VueLayers SCSS mixins.\n * This part of the Vue
 
 exports = module.exports = __webpack_require__(1)();
 // imports
-exports.i(__webpack_require__(315), "");
+
 
 // module
-exports.push([module.i, "\nhtml, body, #app {\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  font-family: Helvetica, Arial, sans-serif;\n  overflow: hidden;\n}\nhtml *, body *, #app * {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n}\n.controls {\n  position: absolute;\n  bottom: 10px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n      -ms-transform: translateX(-50%);\n          transform: translateX(-50%);\n  width: 70vw;\n  background: rgba(255, 255, 255, 0.7);\n  -webkit-box-shadow: 0 0 20px rgba(2, 2, 2, 0.1);\n          box-shadow: 0 0 20px rgba(2, 2, 2, 0.1);\n  padding: 5px;\n  text-align: center;\n}\n.controls > button {\n    margin: 5px;\n    text-transform: uppercase;\n}\n#source-code {\n  overflow: auto;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  padding: 20px;\n  background: #ffffff;\n}\n#source-code .controls {\n    position: relative;\n}\n.slide-enter, .slide-leave-to {\n  -webkit-transform: translateY(100%);\n      -ms-transform: translateY(100%);\n          transform: translateY(100%);\n}\n.slide-enter-active, .slide-leave-active {\n  -webkit-transition: all .3s ease-out;\n  transition: all .3s ease-out;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5391,7 +5447,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
+exports.push([module.i, "/**\n * VueLayers SCSS mixins.\n * This part of the VueLayers package.\n */\n.ol-control, .ol-scale-line {\n  position: absolute;\n  padding: 2px;\n}\n.ol-box {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  border-radius: 2px;\n  border: 2px solid #00f;\n}\n.ol-mouse-position {\n  top: 8px;\n  right: 8px;\n  position: absolute;\n}\n.ol-scale-line {\n  background: rgba(0, 60, 136, 0.3);\n  border-radius: 4px;\n  bottom: 8px;\n  left: 8px;\n}\n.ol-scale-line-inner {\n  border: 1px solid #eee;\n  border-top: none;\n  color: #eee;\n  font-size: 10px;\n  text-align: center;\n  margin: 1px;\n  will-change: contents,width;\n}\n.ol-overlay-container {\n  will-change: left,right,top,bottom;\n}\n.ol-unsupported {\n  display: none;\n}\n.ol-viewport .ol-unselectable {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n}\n.ol-control {\n  background-color: rgba(255, 255, 255, 0.4);\n  border-radius: 4px;\n}\n.ol-control:hover {\n  background-color: rgba(255, 255, 255, 0.6);\n}\n.ol-zoom {\n  top: .5em;\n  left: .5em;\n}\n.ol-rotate {\n  top: .5em;\n  right: .5em;\n  -webkit-transition: opacity .25s linear,visibility 0s linear;\n  transition: opacity .25s linear,visibility 0s linear;\n}\n.ol-rotate.ol-hidden {\n  opacity: 0;\n  visibility: hidden;\n  -webkit-transition: opacity .25s linear,visibility 0s linear .25s;\n  transition: opacity .25s linear,visibility 0s linear .25s;\n}\n.ol-zoom-extent {\n  top: 4.643em;\n  left: .5em;\n}\n.ol-full-screen {\n  right: .5em;\n  top: .5em;\n}\n@media print {\n.ol-control {\n    display: none;\n}\n}\n.ol-control button {\n  display: block;\n  margin: 1px;\n  padding: 0;\n  color: #fff;\n  font-size: 1.14em;\n  font-weight: 700;\n  text-decoration: none;\n  text-align: center;\n  height: 1.375em;\n  width: 1.375em;\n  line-height: .4em;\n  background-color: rgba(0, 60, 136, 0.5);\n  border: none;\n  border-radius: 2px;\n}\n.ol-control button::-moz-focus-inner {\n  border: none;\n  padding: 0;\n}\n.ol-zoom-extent button {\n  line-height: 1.4em;\n}\n.ol-compass {\n  display: block;\n  font-weight: 400;\n  font-size: 1.2em;\n  will-change: transform;\n}\n.ol-touch .ol-control button {\n  font-size: 1.5em;\n}\n.ol-touch .ol-zoom-extent {\n  top: 5.5em;\n}\n.ol-control button:focus, .ol-control button:hover {\n  text-decoration: none;\n  background-color: rgba(0, 60, 136, 0.7);\n}\n.ol-zoom .ol-zoom-in {\n  border-radius: 2px 2px 0 0;\n}\n.ol-zoom .ol-zoom-out {\n  border-radius: 0 0 2px 2px;\n}\n.ol-attribution {\n  text-align: right;\n  bottom: .5em;\n  right: .5em;\n  max-width: -webkit-calc(100% - 1.3em);\n  max-width: calc(100% - 1.3em);\n}\n.ol-attribution ul {\n  margin: 0;\n  padding: 0 .5em;\n  font-size: .7rem;\n  line-height: 1.375em;\n  color: #000;\n  text-shadow: 0 0 2px #fff;\n}\n.ol-attribution li {\n  display: inline;\n  list-style: none;\n  line-height: inherit;\n}\n.ol-attribution li:not(:last-child):after {\n  content: \" \";\n}\n.ol-attribution img {\n  max-height: 2em;\n  max-width: inherit;\n  vertical-align: middle;\n}\n.ol-attribution button, .ol-attribution ul {\n  display: inline-block;\n}\n.ol-attribution.ol-collapsed ul {\n  display: none;\n}\n.ol-attribution.ol-logo-only ul {\n  display: block;\n}\n.ol-attribution:not(.ol-collapsed) {\n  background: rgba(255, 255, 255, 0.8);\n}\n.ol-attribution.ol-uncollapsible {\n  bottom: 0;\n  right: 0;\n  border-radius: 4px 0 0;\n  height: 1.1em;\n  line-height: 1em;\n}\n.ol-attribution.ol-logo-only {\n  background: 0 0;\n  bottom: .4em;\n  height: 1.1em;\n  line-height: 1em;\n}\n.ol-attribution.ol-uncollapsible img {\n  margin-top: -.2em;\n  max-height: 1.6em;\n}\n.ol-attribution.ol-logo-only button, .ol-attribution.ol-uncollapsible button {\n  display: none;\n}\n.ol-zoomslider {\n  top: 4.5em;\n  left: .5em;\n  height: 200px;\n}\n.ol-zoomslider button {\n  position: relative;\n  height: 10px;\n}\n.ol-touch .ol-zoomslider {\n  top: 5.5em;\n}\n.ol-overviewmap {\n  left: .5em;\n  bottom: .5em;\n}\n.ol-overviewmap.ol-uncollapsible {\n  bottom: 0;\n  left: 0;\n  border-radius: 0 4px 0 0;\n}\n.ol-overviewmap .ol-overviewmap-map, .ol-overviewmap button {\n  display: inline-block;\n}\n.ol-overviewmap .ol-overviewmap-map {\n  border: 1px solid #7b98bc;\n  height: 150px;\n  margin: 2px;\n  width: 150px;\n}\n.ol-overviewmap:not(.ol-collapsed) button {\n  bottom: 1px;\n  left: 2px;\n  position: absolute;\n}\n.ol-overviewmap.ol-collapsed .ol-overviewmap-map, .ol-overviewmap.ol-uncollapsible button {\n  display: none;\n}\n.ol-overviewmap:not(.ol-collapsed) {\n  background: rgba(255, 255, 255, 0.8);\n}\n.ol-overviewmap-box {\n  border: 2px dotted rgba(0, 60, 136, 0.7);\n}\n.vl-map, .vl-map .map {\n  width: 100%;\n  height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -5403,10 +5459,10 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
 
 exports = module.exports = __webpack_require__(1)();
 // imports
-
+exports.i(__webpack_require__(317), "");
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\nhtml, body, #app {\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  font-family: Helvetica, Arial, sans-serif;\n  overflow: hidden;\n}\nhtml *, body *, #app * {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n}\n.controls {\n  position: absolute;\n  bottom: 10px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n      -ms-transform: translateX(-50%);\n          transform: translateX(-50%);\n  width: 70vw;\n  background: rgba(255, 255, 255, 0.7);\n  -webkit-box-shadow: 0 0 20px rgba(2, 2, 2, 0.1);\n          box-shadow: 0 0 20px rgba(2, 2, 2, 0.1);\n  padding: 5px;\n  text-align: center;\n}\n.controls > button {\n    margin: 5px;\n    padding: 5px 10px;\n    text-transform: uppercase;\n}\n#source-code {\n  overflow: auto;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  padding: 20px;\n  background: #ffffff;\n}\n#source-code .controls {\n    position: relative;\n}\n.slide-enter, .slide-leave-to {\n  -webkit-transform: translateY(100%);\n      -ms-transform: translateY(100%);\n          transform: translateY(100%);\n}\n.slide-enter-active, .slide-leave-active {\n  -webkit-transition: all .3s ease-out;\n  transition: all .3s ease-out;\n}\n", ""]);
 
 // exports
 
@@ -5421,7 +5477,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
 
 // exports
 
@@ -5436,7 +5492,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5451,7 +5507,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
 
 // exports
 
@@ -5466,7 +5522,22 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 339:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)();
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5546,6 +5617,21 @@ exports.default = {
 
 /***/ }),
 
+/***/ 340:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)();
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ 35:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5556,7 +5642,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _kebabCase2 = __webpack_require__(193);
+var _kebabCase2 = __webpack_require__(195);
 
 var _kebabCase3 = _interopRequireDefault(_kebabCase2);
 
@@ -5748,7 +5834,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fromOlEvent = undefined;
 
-var _fromOlEvent2 = __webpack_require__(246);
+var _fromOlEvent2 = __webpack_require__(248);
 
 var _fromOlEvent3 = _interopRequireDefault(_fromOlEvent2);
 
@@ -5922,7 +6008,7 @@ __webpack_require__(746)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(248),
+  __webpack_require__(250),
   /* template */
   __webpack_require__(723),
   /* scopeId */
@@ -5961,7 +6047,7 @@ __webpack_require__(733)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(249),
+  __webpack_require__(251),
   /* template */
   null,
   /* scopeId */
@@ -5999,7 +6085,7 @@ __webpack_require__(732)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(250),
+  __webpack_require__(252),
   /* template */
   null,
   /* scopeId */
@@ -6037,7 +6123,7 @@ __webpack_require__(726)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(251),
+  __webpack_require__(253),
   /* template */
   null,
   /* scopeId */
@@ -6075,7 +6161,7 @@ __webpack_require__(724)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(252),
+  __webpack_require__(254),
   /* template */
   null,
   /* scopeId */
@@ -6113,7 +6199,7 @@ __webpack_require__(742)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(253),
+  __webpack_require__(255),
   /* template */
   null,
   /* scopeId */
@@ -6151,7 +6237,7 @@ __webpack_require__(744)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(254),
+  __webpack_require__(256),
   /* template */
   null,
   /* scopeId */
@@ -6189,7 +6275,7 @@ __webpack_require__(743)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(255),
+  __webpack_require__(257),
   /* template */
   null,
   /* scopeId */
@@ -6227,7 +6313,7 @@ __webpack_require__(731)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(256),
+  __webpack_require__(258),
   /* template */
   null,
   /* scopeId */
@@ -6265,7 +6351,7 @@ __webpack_require__(729)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(257),
+  __webpack_require__(259),
   /* template */
   null,
   /* scopeId */
@@ -6303,7 +6389,7 @@ __webpack_require__(737)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(258),
+  __webpack_require__(260),
   /* template */
   null,
   /* scopeId */
@@ -6341,7 +6427,7 @@ __webpack_require__(739)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(259),
+  __webpack_require__(261),
   /* template */
   __webpack_require__(721),
   /* scopeId */
@@ -6380,7 +6466,7 @@ __webpack_require__(728)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(260),
+  __webpack_require__(262),
   /* template */
   null,
   /* scopeId */
@@ -6418,7 +6504,7 @@ __webpack_require__(736)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(261),
+  __webpack_require__(263),
   /* template */
   null,
   /* scopeId */
@@ -6456,7 +6542,7 @@ __webpack_require__(730)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(262),
+  __webpack_require__(264),
   /* template */
   null,
   /* scopeId */
@@ -6494,7 +6580,7 @@ __webpack_require__(741)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(263),
+  __webpack_require__(265),
   /* template */
   null,
   /* scopeId */
@@ -6532,7 +6618,7 @@ __webpack_require__(727)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(264),
+  __webpack_require__(266),
   /* template */
   null,
   /* scopeId */
@@ -6570,7 +6656,7 @@ __webpack_require__(734)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(265),
+  __webpack_require__(267),
   /* template */
   null,
   /* scopeId */
@@ -6608,7 +6694,7 @@ __webpack_require__(738)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(266),
+  __webpack_require__(268),
   /* template */
   __webpack_require__(720),
   /* scopeId */
@@ -6647,7 +6733,7 @@ __webpack_require__(725)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(267),
+  __webpack_require__(269),
   /* template */
   null,
   /* scopeId */
@@ -6685,7 +6771,7 @@ __webpack_require__(735)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(268),
+  __webpack_require__(270),
   /* template */
   null,
   /* scopeId */
@@ -6723,7 +6809,7 @@ __webpack_require__(745)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(269),
+  __webpack_require__(271),
   /* template */
   null,
   /* scopeId */
@@ -6953,7 +7039,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.showSourceCode
     }
-  }, [_vm._v("Show source code")]), _vm._v(" "), _c('hr'), _vm._v("\n      Center: " + _vm._s(_vm.center.map(function (x) { return parseFloat(x.toPrecision(6)); })) + " Zoom: " + _vm._s(_vm.zoom) + " Rotation " + _vm._s(_vm.rotation)), _c('br'), _vm._v("\n      My position: " + _vm._s(_vm.position.map(function (x) { return parseFloat(x.toPrecision(6)); }))), _c('br'), _vm._v("\n      Current selection: " + _vm._s(_vm.selected) + "\n    ")], 2), _vm._v(" "), _c('transition', {
+  }, [_vm._v("Show usage info / example source code")]), _vm._v(" "), _c('hr'), _vm._v("\n      Center: " + _vm._s(_vm.center.map(function (x) { return parseFloat(x.toPrecision(6)); })) + " Zoom: " + _vm._s(_vm.zoom) + " Rotation " + _vm._s(_vm.rotation)), _c('br'), _vm._v("\n      My position: " + _vm._s(_vm.position.map(function (x) { return parseFloat(x.toPrecision(6)); }))), _c('br'), _vm._v("\n      Current selection: " + _vm._s(_vm.selected) + "\n    ")], 2), _vm._v(" "), _c('transition', {
     attrs: {
       "name": "slide"
     }
@@ -6970,11 +7056,43 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.sourceCode = false
       }
     }
-  }, [_vm._v("Close")])]), _vm._v(" "), _c('div', [_c('h1', [_vm._v("HTML")]), _vm._v(" "), _c('pre', [_vm._v("\n            "), _c('code', {
+  }, [_vm._v("Close")])]), _vm._v(" "), _c('h2', {
+    attrs: {
+      "id": "install"
+    }
+  }, [_vm._v("Install")]), _vm._v(" "), _c('pre', [_c('code', {
+    staticClass: "bash"
+  }, [_vm._v("\n# install Vue and VueLayers\nnpm install -S vue vuelayers\n        ")])]), _vm._v(" "), _c('h2', {
+    attrs: {
+      "id": "usage"
+    }
+  }, [_vm._v("Usage")]), _vm._v(" "), _c('h4', {
+    attrs: {
+      "id": "fullimport"
+    }
+  }, [_vm._v("Full import")]), _vm._v(" "), _c('p', [_vm._v("Import full library code with all components and mixins")]), _vm._v(" "), _c('pre', [_c('code', {
+    staticClass: "javascript jsx"
+  }, [_vm._v("\nimport Vue from 'vue'\nimport VueLayers from 'vuelayers'\n\nVue.use(VueLayers)\n// now all components installed and ready to use\nnew Vue({\n  el: '#app',\n  render: h => h(App)\n})\n        ")])]), _vm._v(" "), _c('p', [_c('strong', [_vm._v("Note")]), _vm._v(": CSS file needs to be imported separately. "), _c('br'), _vm._v("\n          Inside your App.vue")]), _vm._v(" "), _c('pre', [_c('code', {
+    staticClass: "vue"
+  }, [_vm._v("\n<template>...</template>\n<script>...</script>\n<style>\n  @import \"~vuelayers/dist/cjs/style.css\";\n</style>\n        ")])]), _vm._v(" "), _c('h4', {
+    attrs: {
+      "id": "ondemand"
+    }
+  }, [_vm._v("On demand")]), _vm._v(" "), _c('p', [_vm._v("First, install "), _c('a', {
+    attrs: {
+      "href": "https://github.com/QingWei-Li/babel-plugin-component"
+    }
+  }, [_vm._v("babel-plugin-component")])]), _vm._v(" "), _c('pre', [_c('code', {
+    staticClass: "bash"
+  }, [_vm._v("\nnpm install babel-plugin-component -D\n        ")])]), _vm._v(" "), _c('p', [_vm._v("Then edit your "), _c('code', [_vm._v(".babelrc")])]), _vm._v(" "), _c('pre', [_c('code', {
+    staticClass: "json"
+  }, [_vm._v("\n{\n  \"presets\": [\n    [\"es2015\", \"latest\"]\n  ],\n  \"plugins\": [[\"component\", [\n    {\n      \"libraryName\": \"vuelayers\",\n      \"style\": true,\n      \"libDir\": \"dist/cjs\"\n    }\n  ]]]\n}\n        ")])]), _vm._v(" "), _c('p', [_vm._v("Now you can import only what you need")]), _vm._v(" "), _c('pre', [_c('code', {
+    staticClass: "javascript jsx"
+  }, [_vm._v("\nimport Vue from 'vue'\nimport { Map, MapView, LayerTile, SourceOsm } from 'vuelayers'\n\nVue.use(Map)\nVue.use(MapView)\nVue.use(LayerTile)\nVue.use(SourceOsm)\n\nnew Vue({\n  el: '#app',\n  render: h => h(App)\n})\n        ")])]), _vm._v(" "), _c('p', [_c('strong', [_vm._v("Note")]), _vm._v(": the above library setup automatically imports CSS files")]), _vm._v(" "), _c('h2', [_vm._v("Demo source code")]), _vm._v(" "), _c('h3', [_vm._v("HTML")]), _vm._v(" "), _c('pre', [_c('code', {
     staticClass: "xml"
-  }, [_vm._v("\n<vl-map>\n  <vl-map-view :center=\"center\" :zoom=\"zoom\" :rotation=\"rotation\" @change=\"updateMapView\"/>\n  <vl-geoloc @change=\"updateGeoloc\"/>\n\n  <!-- interactions -->\n  <vl-interaction-select ref=\"select\" :selected=\"selected\" @select=\"select\" @unselect=\"unselect\">\n    <vl-style-container>\n      <vl-style-stroke color=\"#f03b20\" :width=\"3\"/>\n      <vl-style-fill :color=\"[254, 178, 76, 0.7]\"/>\n    </vl-style-container>\n  </vl-interaction-select>\n  <!-- interactions -->\n\n  <!-- base layers -->\n  <vl-layer-tile id=\"osm\" :visible=\"layers.osm\">\n    <vl-source-osm/>\n  </vl-layer-tile>\n\n  <vl-layer-tile id=\"mapbox\" :visible=\"layers.mapbox\">\n    <vl-source-mapbox map-id=\"ghettovoice.nbm2olb0\"\n                      access-token=\"pk.eyJ1IjoiZ2hldHRvdm9pY2UiLCJhIjoiMzMxYzMyMWQ3NTgzMTU4Nzk3ZTNmMmI3MmQ1NmVhMjgifQ._erAEzdvdB0jfYXXqzOJCg\"/>\n  </vl-layer-tile>\n  <!-- base layers -->\n\n  <!-- countries vector -->\n  <vl-layer-vector id=\"countries\" v-if=\"countries.length\" :visible=\"layers.countries\">\n    <!-- layer level style -->\n    <vl-style-container>\n      <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n      <vl-style-fill :color=\"[158, 188, 218, 0.5]\"/>\n    </vl-style-container>\n    <!-- layer level style -->\n\n    <vl-source-vector>\n      <vl-feature v-for=\"feature in countries\" :key=\"feature.id\" :id=\"feature.id\" :data=\"feature.properties\">\n        <component :is=\"geometryTypeToCompName(feature.geometry.type)\" :coordinates=\"feature.geometry.coordinates\"/>\n\n        <!-- feature level style -->\n        <vl-style-container v-if=\"feature.properties.color && !selected.includes(feature.id)\">\n          <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n          <vl-style-fill :color=\"feature.properties.color\"/>\n        </vl-style-container>\n\n        <vl-style-container v-if=\"selected.includes(feature.id) && feature.properties.selectColor\">\n          <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n          <vl-style-fill :color=\"feature.properties.selectColor\"/>\n        </vl-style-container>\n        <!-- feature level style -->\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!-- countries vector -->\n\n  <!-- pacman, use v-style-func for advanced styling -->\n  <vl-layer-vector id=\"pacman\" v-if=\"pacman.length\" v-style-func=\"pacmanStyleFunc\" :visible=\"layers.pacman\">\n    <vl-source-vector>\n      <vl-feature v-for=\"feature in pacman\" :key=\"feature.id\" :id=\"feature.id\" :data=\"feature.properties\">\n        <component :is=\"geometryTypeToCompName(feature.geometry.type)\" :coordinates=\"feature.geometry.coordinates\"/>\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!-- pacman -->\n\n  <!-- position -->\n  <vl-layer-vector v-if=\"position.length\" id=\"my-position\" :z-index=\"100\">\n    <vl-style-container>\n      <vl-style-icon src=\"/static/marker.png\" :scale=\"0.3\" :anchor=\"[0.5, 1]\"/>\n    </vl-style-container>\n\n    <vl-source-vector>\n      <vl-feature id=\"my-position\">\n        <vl-geom-point :coordinates=\"position\"/>\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!-- position -->\n</vl-map>\n            ")]), _vm._v("\n          ")])]), _vm._v(" "), _c('div', [_c('h1', [_vm._v("JavaScript")]), _vm._v(" "), _c('pre', [_vm._v("\n            "), _c('code', {
-    staticClass: "javascript"
-  }, [_vm._v("\nimport 'whatwg-fetch'\nimport { kebabCase } from 'lodash/fp'\n\nconst methods = {\n  geometryTypeToCompName (type) {\n    return 'vl-geom-' + kebabCase(type)\n  },\n  updateMapView ({ center, zoom, rotation }) {\n    this.center = center\n    this.zoom = zoom\n    this.rotation = rotation\n  },\n  updateGeoloc ({ position }) {\n    this.position = position\n  },\n  select (id) {\n    if (this.selected.indexOf(id) === -1) {\n      this.selected.push(id)\n    }\n  },\n  unselect (id) {\n    const i = this.selected.indexOf(id)\n    if (i !== -1) {\n      this.selected.splice(i, 1)\n    }\n  },\n  async loadData () {\n    const res = await fetch('https://openlayers.org/en/latest/examples/data/geojson/countries.geojson')\n    const geomCollection = await res.json()\n    this.countries = geomCollection.features.map((feature, i) => {\n      feature.properties = {\n        ...feature.properties,\n        color: i % 2 === 0 ? [ 49, 163, 84, 0.7 ] : undefined,\n        selectColor: i % 2 !== 0 ? [ 221, 28, 119, 0.9 ] : undefined\n      }\n\n      return feature\n    })\n\n    return this.countries\n  },\n  /**\n   * Style function factory, use with v-style-func directive to apply complex stylings with OpenLayers native API.\n   */\n  pacmanStyleFunc (ol, styleHelper) {\n    const pacman = [\n      new ol.style.Style({\n        stroke: new ol.style.Stroke({\n          color: '#DE9147',\n          width: 3\n        }),\n        fill: new ol.style.Fill({\n          color: [ 222, 189, 36, 0.8 ]\n        })\n      })\n    ]\n    const path = [\n      new ol.style.Style({\n        stroke: new ol.style.Stroke({\n          color: 'blue',\n          width: 1\n        })\n      }),\n      new ol.style.Style({\n        image: new ol.style.Circle({\n          radius: 5,\n          fill: new ol.style.Fill({\n            color: 'orange'\n          })\n        }),\n        geometry (feature) {\n          return new ol.geom.MultiPoint(feature.getGeometry().getCoordinates())\n        }\n      })\n    ]\n    const eye = [\n      new ol.style.Style({\n        image: new ol.style.Circle({\n          radius: 6,\n          fill: new ol.style.Fill({\n            color: '#444444'\n          })\n        })\n      })\n    ]\n\n    return function __pacmanStyleFunc (feature, resolution) {\n      switch (feature.getId()) {\n        case 'pacman':\n          return pacman\n        case 'pacman-path':\n          return path\n        case 'pacman-eye':\n          return eye\n      }\n    }\n  },\n  toggleLayer (layer) {\n    this.layers[ layer ] = !this.layers[ layer ]\n  }\n}\n\nexport default {\n  name: 'app',\n  methods,\n  data () {\n    return {\n      zoom: 2,\n      center: [ 0, 0 ],\n      rotation: 0,\n      selected: [],\n      countries: [],\n      pacman: require('../static/pacman.geojson').features,\n      position: [],\n      layers: {\n        osm: false,\n        mapbox: true,\n        countries: true,\n        pacman: false\n      }\n    }\n  },\n  created () {\n    this.loadData()\n      .catch(::console.error)\n  }\n}\n            ")]), _vm._v("\n          ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n<vl-map>\n  <vl-map-view :center=\"center\" :zoom=\"zoom\" :rotation=\"rotation\" @change=\"updateMapView\"/>\n  <vl-geoloc @change=\"updateGeoloc\"/>\n\n  <!-- interactions -->\n  <vl-interaction-select ref=\"select\" :selected=\"selected\" @select=\"select\" @unselect=\"unselect\">\n    <vl-style-container>\n      <vl-style-stroke color=\"#f03b20\" :width=\"3\"/>\n      <vl-style-fill :color=\"[254, 178, 76, 0.7]\"/>\n    </vl-style-container>\n  </vl-interaction-select>\n  <!-- interactions -->\n\n  <!-- base layers -->\n  <vl-layer-tile id=\"osm\" :visible=\"layers.osm\">\n    <vl-source-osm/>\n  </vl-layer-tile>\n\n  <vl-layer-tile id=\"mapbox\" :visible=\"layers.mapbox\">\n    <vl-source-mapbox map-id=\"ghettovoice.nbm2olb0\"\n                      access-token=\"pk.eyJ1IjoiZ2hldHRvdm9pY2UiLCJhIjoiMzMxYzMyMWQ3NTgzMTU4Nzk3ZTNmMmI3MmQ1NmVhMjgifQ._erAEzdvdB0jfYXXqzOJCg\"/>\n  </vl-layer-tile>\n  <!-- base layers -->\n\n  <!-- countries vector -->\n  <vl-layer-vector id=\"countries\" v-if=\"countries.length\" :visible=\"layers.countries\">\n    <!-- layer level style -->\n    <vl-style-container>\n      <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n      <vl-style-fill :color=\"[158, 188, 218, 0.5]\"/>\n    </vl-style-container>\n    <!-- layer level style -->\n\n    <vl-source-vector>\n      <vl-feature v-for=\"feature in countries\" :key=\"feature.id\" :id=\"feature.id\" :data=\"feature.properties\">\n        <component :is=\"geometryTypeToCompName(feature.geometry.type)\" :coordinates=\"feature.geometry.coordinates\"/>\n\n        <!-- feature level style -->\n        <vl-style-container v-if=\"feature.properties.color && !selected.includes(feature.id)\">\n          <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n          <vl-style-fill :color=\"feature.properties.color\"/>\n        </vl-style-container>\n\n        <vl-style-container v-if=\"selected.includes(feature.id) && feature.properties.selectColor\">\n          <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n          <vl-style-fill :color=\"feature.properties.selectColor\"/>\n        </vl-style-container>\n        <!-- feature level style -->\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!-- countries vector -->\n\n  <!-- pacman, use v-style-func for advanced styling -->\n  <vl-layer-vector id=\"pacman\" v-if=\"pacman.length\" v-style-func=\"pacmanStyleFunc\" :visible=\"layers.pacman\">\n    <vl-source-vector>\n      <vl-feature v-for=\"feature in pacman\" :key=\"feature.id\" :id=\"feature.id\" :data=\"feature.properties\">\n        <component :is=\"geometryTypeToCompName(feature.geometry.type)\" :coordinates=\"feature.geometry.coordinates\"/>\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!-- pacman -->\n\n  <!-- position -->\n  <vl-layer-vector v-if=\"position.length\" id=\"my-position\" :z-index=\"100\">\n    <vl-style-container>\n      <vl-style-icon src=\"/static/marker.png\" :scale=\"0.3\" :anchor=\"[0.5, 1]\"/>\n    </vl-style-container>\n\n    <vl-source-vector>\n      <vl-feature id=\"my-position\">\n        <vl-geom-point :coordinates=\"position\"/>\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!-- position -->\n</vl-map>\n        ")])]), _vm._v(" "), _c('h3', [_vm._v("JavaScript")]), _vm._v(" "), _c('pre', [_c('code', {
+    staticClass: "javascript jsx"
+  }, [_vm._v("\nimport 'whatwg-fetch'\nimport { kebabCase } from 'lodash/fp'\n\nconst methods = {\n  geometryTypeToCompName (type) {\n    return 'vl-geom-' + kebabCase(type)\n  },\n  updateMapView ({ center, zoom, rotation }) {\n    this.center = center\n    this.zoom = zoom\n    this.rotation = rotation\n  },\n  updateGeoloc ({ position }) {\n    this.position = position\n  },\n  select (id) {\n    if (this.selected.indexOf(id) === -1) {\n      this.selected.push(id)\n    }\n  },\n  unselect (id) {\n    const i = this.selected.indexOf(id)\n    if (i !== -1) {\n      this.selected.splice(i, 1)\n    }\n  },\n  async loadData () {\n    const res = await fetch('https://openlayers.org/en/latest/examples/data/geojson/countries.geojson')\n    const geomCollection = await res.json()\n    this.countries = geomCollection.features.map((feature, i) => {\n      feature.properties = {\n        ...feature.properties,\n        color: i % 2 === 0 ? [ 49, 163, 84, 0.7 ] : undefined,\n        selectColor: i % 2 !== 0 ? [ 221, 28, 119, 0.9 ] : undefined\n      }\n\n      return feature\n    })\n\n    return this.countries\n  },\n  /**\n   * Style function factory, use with v-style-func directive to apply complex stylings with OpenLayers native API.\n   */\n  pacmanStyleFunc (ol, styleHelper) {\n    const pacman = [\n      new ol.style.Style({\n        stroke: new ol.style.Stroke({\n          color: '#DE9147',\n          width: 3\n        }),\n        fill: new ol.style.Fill({\n          color: [ 222, 189, 36, 0.8 ]\n        })\n      })\n    ]\n    const path = [\n      new ol.style.Style({\n        stroke: new ol.style.Stroke({\n          color: 'blue',\n          width: 1\n        })\n      }),\n      new ol.style.Style({\n        image: new ol.style.Circle({\n          radius: 5,\n          fill: new ol.style.Fill({\n            color: 'orange'\n          })\n        }),\n        geometry (feature) {\n          return new ol.geom.MultiPoint(feature.getGeometry().getCoordinates())\n        }\n      })\n    ]\n    const eye = [\n      new ol.style.Style({\n        image: new ol.style.Circle({\n          radius: 6,\n          fill: new ol.style.Fill({\n            color: '#444444'\n          })\n        })\n      })\n    ]\n\n    return function __pacmanStyleFunc (feature, resolution) {\n      switch (feature.getId()) {\n        case 'pacman':\n          return pacman\n        case 'pacman-path':\n          return path\n        case 'pacman-eye':\n          return eye\n      }\n    }\n  },\n  toggleLayer (layer) {\n    this.layers[ layer ] = !this.layers[ layer ]\n  }\n}\n\nexport default {\n  name: 'app',\n  methods,\n  data () {\n    return {\n      zoom: 2,\n      center: [ 0, 0 ],\n      rotation: 0,\n      selected: [],\n      countries: [],\n      pacman: require('../static/pacman.geojson').features,\n      position: [],\n      layers: {\n        osm: false,\n        mapbox: true,\n        countries: true,\n        pacman: false\n      }\n    }\n  },\n  created () {\n    this.loadData()\n      .catch(::console.error)\n  }\n}\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "controls"
   }, [_c('button', {
     on: {
@@ -7022,7 +7140,7 @@ if (false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(316);
+var content = __webpack_require__(318);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7049,7 +7167,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(317);
+var content = __webpack_require__(319);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7076,7 +7194,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(318);
+var content = __webpack_require__(320);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7103,7 +7221,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(319);
+var content = __webpack_require__(321);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7130,7 +7248,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(320);
+var content = __webpack_require__(322);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7157,7 +7275,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(321);
+var content = __webpack_require__(323);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7188,7 +7306,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _v = __webpack_require__(210);
+var _v = __webpack_require__(212);
 
 var _v2 = _interopRequireDefault(_v);
 
@@ -7335,7 +7453,7 @@ exports.default = {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(322);
+var content = __webpack_require__(324);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7362,7 +7480,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(323);
+var content = __webpack_require__(325);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7389,7 +7507,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(324);
+var content = __webpack_require__(326);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7416,7 +7534,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(325);
+var content = __webpack_require__(327);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7443,7 +7561,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(326);
+var content = __webpack_require__(328);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7470,7 +7588,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(327);
+var content = __webpack_require__(329);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7497,7 +7615,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(328);
+var content = __webpack_require__(330);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7524,7 +7642,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(329);
+var content = __webpack_require__(331);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7551,7 +7669,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(330);
+var content = __webpack_require__(332);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7578,7 +7696,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(331);
+var content = __webpack_require__(333);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7721,7 +7839,7 @@ exports.default = {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(332);
+var content = __webpack_require__(334);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7748,7 +7866,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(333);
+var content = __webpack_require__(335);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7775,7 +7893,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(334);
+var content = __webpack_require__(336);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7802,7 +7920,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(335);
+var content = __webpack_require__(337);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7829,7 +7947,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(336);
+var content = __webpack_require__(338);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7856,7 +7974,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(337);
+var content = __webpack_require__(339);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7883,7 +8001,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(338);
+var content = __webpack_require__(340);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7910,9 +8028,9 @@ if(false) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src__ = __webpack_require__(213);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__src__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__app__);
 
 
@@ -8089,15 +8207,15 @@ var _consts2 = __webpack_require__(48);
 
 var _consts = _interopRequireWildcard(_consts2);
 
-var _helpers2 = __webpack_require__(244);
+var _helpers2 = __webpack_require__(246);
 
 var _helpers = _interopRequireWildcard(_helpers2);
 
-var _style2 = __webpack_require__(245);
+var _style2 = __webpack_require__(247);
 
 var _style = _interopRequireWildcard(_style2);
 
-var _coord2 = __webpack_require__(243);
+var _coord2 = __webpack_require__(245);
 
 var _coord = _interopRequireWildcard(_coord2);
 
@@ -8114,4 +8232,4 @@ exports.coord = _coord;
 /***/ })
 
 },[749]);
-//# sourceMappingURL=app.5ff095aebf3d05f07dbb.js.map
+//# sourceMappingURL=app.3a0ee2045fe1aa9300bd.js.map
