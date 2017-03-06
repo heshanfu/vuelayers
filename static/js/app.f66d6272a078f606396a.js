@@ -90,11 +90,15 @@ exports.default = {
     this.initialize();
   },
   mounted: function mounted() {
-    this.mountInteraction();
+    this.$nextTick(this.mountInteraction);
   },
   destroyed: function destroyed() {
-    this.unmountInteraction();
-    this.interaction = undefined;
+    var _this2 = this;
+
+    this.$nextTick(function () {
+      _this2.unmountInteraction();
+      _this2.interaction = undefined;
+    });
   }
 };
 
@@ -249,7 +253,7 @@ var _openlayers = __webpack_require__(0);
 
 var _openlayers2 = _interopRequireDefault(_openlayers);
 
-var _ol3Tilecache = __webpack_require__(669);
+var _ol3Tilecache = __webpack_require__(671);
 
 var _func = __webpack_require__(76);
 
@@ -512,7 +516,7 @@ function errordbg() {
 
 /***/ }),
 
-/***/ 16:
+/***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -522,7 +526,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray2 = __webpack_require__(275);
+var _slicedToArray2 = __webpack_require__(276);
 
 var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 
@@ -664,21 +668,25 @@ exports.default = {
     this.initialize();
   },
   mounted: function mounted() {
-    this.mountGeometry();
+    this.$nextTick(this.mountGeometry);
   },
   destroyed: function destroyed() {
-    this.unmountGeometry();
-    this.geometry = undefined;
+    var _this2 = this;
+
+    this.$nextTick(function () {
+      _this2.unmountGeometry();
+      _this2.geometry = undefined;
+    });
   }
 };
 
 
 function subscribeToGeomChanges() {
-  var _this2 = this,
+  var _this3 = this,
       _context;
 
-  this.rxSubs.geomChanges = _Observable.Observable.fromOlEvent(this.geometry, 'change').throttleTime(100).map(function () {
-    return [_this2.coordTransform.toLonLat(_this2.geometry.getCoordinates(), _this2.view().getProjection()), _vlOl.coord.extentToLonLat(_this2.geometry.getExtent(), _this2.view().getProjection())];
+  this.rxSubs.geomChanges = _Observable.Observable.fromOlEvent(this.geometry, 'change').throttleTime(1000).map(function () {
+    return [_this3.coordTransform.toLonLat(_this3.geometry.getCoordinates(), _this3.view().getProjection()), _vlOl.coord.extentToLonLat(_this3.geometry.getExtent(), _this3.view().getProjection())];
   }).distinctUntilChanged(function (a, b) {
     return (0, _isEqual3.default)(a, b);
   }).subscribe(function (_ref) {
@@ -686,15 +694,15 @@ function subscribeToGeomChanges() {
         coordinates = _ref2[0],
         extent = _ref2[1];
 
-    _this2.currentCoordinates = coordinates;
-    _this2.currentExtent = extent;
-    _this2.$emit('change', { coordinates: coordinates, extent: extent });
+    _this3.currentCoordinates = coordinates;
+    _this3.currentExtent = extent;
+    _this3.$emit('change', { coordinates: coordinates, extent: extent });
   }, (_context = console).error.bind(_context));
 }
 
 /***/ }),
 
-/***/ 213:
+/***/ 214:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -712,15 +720,15 @@ var _forEach2 = __webpack_require__(110);
 
 var _forEach3 = _interopRequireDefault(_forEach2);
 
-var _merge2 = __webpack_require__(196);
+var _merge2 = __webpack_require__(197);
 
 var _merge3 = _interopRequireDefault(_merge2);
 
-var _omit2 = __webpack_require__(197);
+var _omit2 = __webpack_require__(643);
 
 var _omit3 = _interopRequireDefault(_omit2);
 
-var _components = __webpack_require__(224);
+var _components = __webpack_require__(225);
 
 var components = _interopRequireWildcard(_components);
 
@@ -746,14 +754,12 @@ var flatComponents = (0, _extends3.default)({}, (0, _omit3.default)(keys, compon
 
 exports.default = (0, _extends3.default)({
   PKG_NAME: "VueLayers",
-  VERSION: "0.1.0"
+  VERSION: "0.2.0"
 }, flatComponents, {
   install: function install(Vue) {
     forEachWithKey(function (component, key) {
       if (component.install) {
         Vue.use(component);
-      } else if (key === 'directives') {
-        (0, _forEach3.default)(Vue.use.bind(Vue), component);
       }
     }, flatComponents);
   }
@@ -761,18 +767,18 @@ exports.default = (0, _extends3.default)({
 
 /***/ }),
 
-/***/ 214:
+/***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(740)
+__webpack_require__(742)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(249),
+  __webpack_require__(250),
   /* template */
-  __webpack_require__(722),
+  __webpack_require__(724),
   /* scopeId */
   null,
   /* cssModules */
@@ -800,7 +806,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 215:
+/***/ 216:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -810,7 +816,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _feature = __webpack_require__(698);
+var _feature = __webpack_require__(700);
 
 var _feature2 = _interopRequireDefault(_feature);
 
@@ -824,7 +830,7 @@ exports.default = _feature2.default;
 
 /***/ }),
 
-/***/ 216:
+/***/ 217:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -834,7 +840,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _geoloc = __webpack_require__(699);
+var _geoloc = __webpack_require__(701);
 
 var _geoloc2 = _interopRequireDefault(_geoloc);
 
@@ -848,59 +854,6 @@ exports.default = _geoloc2.default;
 
 /***/ }),
 
-/***/ 217:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.mixins = exports.VlGeomMultiPolygon = exports.VlGeomMultiLineString = exports.VlGeomMultiPoint = exports.VlGeomPolygon = exports.VlGeomLineString = exports.VlGeomPoint = undefined;
-
-var _geom = __webpack_require__(16);
-
-var _geom2 = _interopRequireDefault(_geom);
-
-var _point = __webpack_require__(222);
-
-var _point2 = _interopRequireDefault(_point);
-
-var _lineString = __webpack_require__(218);
-
-var _lineString2 = _interopRequireDefault(_lineString);
-
-var _polygon = __webpack_require__(223);
-
-var _polygon2 = _interopRequireDefault(_polygon);
-
-var _multiPoint = __webpack_require__(220);
-
-var _multiPoint2 = _interopRequireDefault(_multiPoint);
-
-var _multiLineString = __webpack_require__(219);
-
-var _multiLineString2 = _interopRequireDefault(_multiLineString);
-
-var _multiPolygon = __webpack_require__(221);
-
-var _multiPolygon2 = _interopRequireDefault(_multiPolygon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.VlGeomPoint = _point2.default;
-exports.VlGeomLineString = _lineString2.default;
-exports.VlGeomPolygon = _polygon2.default;
-exports.VlGeomMultiPoint = _multiPoint2.default;
-exports.VlGeomMultiLineString = _multiLineString2.default;
-exports.VlGeomMultiPolygon = _multiPolygon2.default;
-var mixins = exports.mixins = {
-  geom: _geom2.default
-};
-
-/***/ }),
-
 /***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -910,18 +863,47 @@ var mixins = exports.mixins = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.mixins = exports.GeomMultiPolygon = exports.GeomMultiLineString = exports.GeomMultiPoint = exports.GeomPolygon = exports.GeomLineString = exports.GeomPoint = undefined;
 
-var _geom = __webpack_require__(700);
+var _geom = __webpack_require__(17);
 
 var _geom2 = _interopRequireDefault(_geom);
 
+var _point = __webpack_require__(223);
+
+var _point2 = _interopRequireDefault(_point);
+
+var _lineString = __webpack_require__(219);
+
+var _lineString2 = _interopRequireDefault(_lineString);
+
+var _polygon = __webpack_require__(224);
+
+var _polygon2 = _interopRequireDefault(_polygon);
+
+var _multiPoint = __webpack_require__(221);
+
+var _multiPoint2 = _interopRequireDefault(_multiPoint);
+
+var _multiLineString = __webpack_require__(220);
+
+var _multiLineString2 = _interopRequireDefault(_multiLineString);
+
+var _multiPolygon = __webpack_require__(222);
+
+var _multiPolygon2 = _interopRequireDefault(_multiPolygon);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_geom2.default.install = function (Vue) {
-  Vue.component(_geom2.default.name, _geom2.default);
+exports.GeomPoint = _point2.default;
+exports.GeomLineString = _lineString2.default;
+exports.GeomPolygon = _polygon2.default;
+exports.GeomMultiPoint = _multiPoint2.default;
+exports.GeomMultiLineString = _multiLineString2.default;
+exports.GeomMultiPolygon = _multiPolygon2.default;
+var mixins = exports.mixins = {
+  geom: _geom2.default
 };
-
-exports.default = _geom2.default;
 
 /***/ }),
 
@@ -935,7 +917,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _geom = __webpack_require__(701);
+var _geom = __webpack_require__(702);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -1005,7 +987,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _geom = __webpack_require__(702);
+var _geom = __webpack_require__(703);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -1029,7 +1011,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _geom = __webpack_require__(703);
+var _geom = __webpack_require__(704);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -1053,7 +1035,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _geom = __webpack_require__(704);
+var _geom = __webpack_require__(705);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -1077,7 +1059,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _geom = __webpack_require__(705);
+var _geom = __webpack_require__(706);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -1100,57 +1082,18 @@ exports.default = _geom2.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.interaction = exports.style = exports.source = exports.layer = exports.geom = exports.VlGeoloc = exports.VlFeature = exports.VlMapView = exports.VlMap = undefined;
 
-var _map = __webpack_require__(231);
+var _geom = __webpack_require__(707);
 
-var _map2 = _interopRequireDefault(_map);
-
-var _mapView = __webpack_require__(230);
-
-var _mapView2 = _interopRequireDefault(_mapView);
-
-var _feature = __webpack_require__(215);
-
-var _feature2 = _interopRequireDefault(_feature);
-
-var _geoloc = __webpack_require__(216);
-
-var _geoloc2 = _interopRequireDefault(_geoloc);
-
-var _geom2 = __webpack_require__(217);
-
-var _geom = _interopRequireWildcard(_geom2);
-
-var _layer2 = __webpack_require__(227);
-
-var _layer = _interopRequireWildcard(_layer2);
-
-var _source2 = __webpack_require__(232);
-
-var _source = _interopRequireWildcard(_source2);
-
-var _style2 = __webpack_require__(243);
-
-var _style = _interopRequireWildcard(_style2);
-
-var _interaction2 = __webpack_require__(225);
-
-var _interaction = _interopRequireWildcard(_interaction2);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+var _geom2 = _interopRequireDefault(_geom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.VlMap = _map2.default;
-exports.VlMapView = _mapView2.default;
-exports.VlFeature = _feature2.default;
-exports.VlGeoloc = _geoloc2.default;
-exports.geom = _geom;
-exports.layer = _layer;
-exports.source = _source;
-exports.style = _style;
-exports.interaction = _interaction;
+_geom2.default.install = function (Vue) {
+  Vue.component(_geom2.default.name, _geom2.default);
+};
+
+exports.default = _geom2.default;
 
 /***/ }),
 
@@ -1163,22 +1106,57 @@ exports.interaction = _interaction;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mixins = exports.VlInteractionSelect = undefined;
+exports.interaction = exports.style = exports.source = exports.layer = exports.geom = exports.Geoloc = exports.Feature = exports.MapView = exports.Map = undefined;
 
-var _interaction = __webpack_require__(122);
+var _map = __webpack_require__(232);
 
-var _interaction2 = _interopRequireDefault(_interaction);
+var _map2 = _interopRequireDefault(_map);
 
-var _select = __webpack_require__(226);
+var _mapView = __webpack_require__(231);
 
-var _select2 = _interopRequireDefault(_select);
+var _mapView2 = _interopRequireDefault(_mapView);
+
+var _feature = __webpack_require__(216);
+
+var _feature2 = _interopRequireDefault(_feature);
+
+var _geoloc = __webpack_require__(217);
+
+var _geoloc2 = _interopRequireDefault(_geoloc);
+
+var _geom2 = __webpack_require__(218);
+
+var _geom = _interopRequireWildcard(_geom2);
+
+var _layer2 = __webpack_require__(228);
+
+var _layer = _interopRequireWildcard(_layer2);
+
+var _source2 = __webpack_require__(233);
+
+var _source = _interopRequireWildcard(_source2);
+
+var _style2 = __webpack_require__(244);
+
+var _style = _interopRequireWildcard(_style2);
+
+var _interaction2 = __webpack_require__(226);
+
+var _interaction = _interopRequireWildcard(_interaction2);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.VlInteractionSelect = _select2.default;
-var mixins = exports.mixins = {
-  interaction: _interaction2.default
-};
+exports.Map = _map2.default;
+exports.MapView = _mapView2.default;
+exports.Feature = _feature2.default;
+exports.Geoloc = _geoloc2.default;
+exports.geom = _geom;
+exports.layer = _layer;
+exports.source = _source;
+exports.style = _style;
+exports.interaction = _interaction;
 
 /***/ }),
 
@@ -1191,8 +1169,36 @@ var mixins = exports.mixins = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.mixins = exports.InteractionSelect = undefined;
 
-var _select = __webpack_require__(706);
+var _interaction = __webpack_require__(122);
+
+var _interaction2 = _interopRequireDefault(_interaction);
+
+var _select = __webpack_require__(227);
+
+var _select2 = _interopRequireDefault(_select);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.InteractionSelect = _select2.default;
+var mixins = exports.mixins = {
+  interaction: _interaction2.default
+};
+
+/***/ }),
+
+/***/ 227:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _select = __webpack_require__(708);
 
 var _select2 = _interopRequireDefault(_select);
 
@@ -1206,7 +1212,7 @@ exports.default = _select2.default;
 
 /***/ }),
 
-/***/ 227:
+/***/ 228:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1215,7 +1221,7 @@ exports.default = _select2.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mixins = exports.VlLayerTile = exports.VlLayerVector = undefined;
+exports.mixins = exports.LayerTile = exports.LayerVector = undefined;
 
 var _layer = __webpack_require__(73);
 
@@ -1229,47 +1235,23 @@ var _vectorBase = __webpack_require__(124);
 
 var _vectorBase2 = _interopRequireDefault(_vectorBase);
 
-var _vector = __webpack_require__(229);
+var _vector = __webpack_require__(230);
 
 var _vector2 = _interopRequireDefault(_vector);
 
-var _tile = __webpack_require__(228);
+var _tile = __webpack_require__(229);
 
 var _tile2 = _interopRequireDefault(_tile);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.VlLayerVector = _vector2.default;
-exports.VlLayerTile = _tile2.default;
+exports.LayerVector = _vector2.default;
+exports.LayerTile = _tile2.default;
 var mixins = exports.mixins = {
   layer: _layer2.default,
   layerTileBase: _tileBase2.default,
   layerVectorBase: _vectorBase2.default
 };
-
-/***/ }),
-
-/***/ 228:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _layer = __webpack_require__(707);
-
-var _layer2 = _interopRequireDefault(_layer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_layer2.default.install = function (Vue) {
-  Vue.component(_layer2.default.name, _layer2.default);
-};
-
-exports.default = _layer2.default;
 
 /***/ }),
 
@@ -1283,7 +1265,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _layer = __webpack_require__(708);
+var _layer = __webpack_require__(709);
 
 var _layer2 = _interopRequireDefault(_layer);
 
@@ -1307,17 +1289,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _view = __webpack_require__(710);
+var _layer = __webpack_require__(710);
 
-var _view2 = _interopRequireDefault(_view);
+var _layer2 = _interopRequireDefault(_layer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_view2.default.install = function (Vue) {
-  Vue.component(_view2.default.name, _view2.default);
+_layer2.default.install = function (Vue) {
+  Vue.component(_layer2.default.name, _layer2.default);
 };
 
-exports.default = _view2.default;
+exports.default = _layer2.default;
 
 /***/ }),
 
@@ -1331,7 +1313,31 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _map = __webpack_require__(709);
+var _view = __webpack_require__(712);
+
+var _view2 = _interopRequireDefault(_view);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_view2.default.install = function (Vue) {
+  Vue.component(_view2.default.name, _view2.default);
+};
+
+exports.default = _view2.default;
+
+/***/ }),
+
+/***/ 232:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _map = __webpack_require__(711);
 
 var _map2 = _interopRequireDefault(_map);
 
@@ -1346,7 +1352,7 @@ exports.default = _map2.default;
 
 /***/ }),
 
-/***/ 232:
+/***/ 233:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1355,7 +1361,7 @@ exports.default = _map2.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mixins = exports.VlSourceVector = exports.VlSourceMapbox = exports.VlSourceOsm = exports.VlSourceXyz = undefined;
+exports.mixins = exports.SourceVector = exports.SourceMapbox = exports.SourceOsm = exports.SourceXyz = undefined;
 
 var _source = __webpack_require__(74);
 
@@ -1373,28 +1379,28 @@ var _vectorBase = __webpack_require__(126);
 
 var _vectorBase2 = _interopRequireDefault(_vectorBase);
 
-var _xyz = __webpack_require__(236);
+var _xyz = __webpack_require__(237);
 
 var _xyz2 = _interopRequireDefault(_xyz);
 
-var _osm = __webpack_require__(234);
+var _osm = __webpack_require__(235);
 
 var _osm2 = _interopRequireDefault(_osm);
 
-var _mapbox = __webpack_require__(233);
+var _mapbox = __webpack_require__(234);
 
 var _mapbox2 = _interopRequireDefault(_mapbox);
 
-var _vector = __webpack_require__(235);
+var _vector = __webpack_require__(236);
 
 var _vector2 = _interopRequireDefault(_vector);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.VlSourceXyz = _xyz2.default;
-exports.VlSourceOsm = _osm2.default;
-exports.VlSourceMapbox = _mapbox2.default;
-exports.VlSourceVector = _vector2.default;
+exports.SourceXyz = _xyz2.default;
+exports.SourceOsm = _osm2.default;
+exports.SourceMapbox = _mapbox2.default;
+exports.SourceVector = _vector2.default;
 var mixins = exports.mixins = {
   source: _source2.default,
   sourceTileBase: _tileBase2.default,
@@ -1404,55 +1410,7 @@ var mixins = exports.mixins = {
 
 /***/ }),
 
-/***/ 233:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _source = __webpack_require__(711);
-
-var _source2 = _interopRequireDefault(_source);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_source2.default.install = function (Vue) {
-  Vue.component(_source2.default.name, _source2.default);
-};
-
-exports.default = _source2.default;
-
-/***/ }),
-
 /***/ 234:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _source = __webpack_require__(712);
-
-var _source2 = _interopRequireDefault(_source);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_source2.default.install = function (Vue) {
-  Vue.component(_source2.default.name, _source2.default);
-};
-
-exports.default = _source2.default;
-
-/***/ }),
-
-/***/ 235:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1476,7 +1434,7 @@ exports.default = _source2.default;
 
 /***/ }),
 
-/***/ 236:
+/***/ 235:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1500,6 +1458,30 @@ exports.default = _source2.default;
 
 /***/ }),
 
+/***/ 236:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _source = __webpack_require__(715);
+
+var _source2 = _interopRequireDefault(_source);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_source2.default.install = function (Vue) {
+  Vue.component(_source2.default.name, _source2.default);
+};
+
+exports.default = _source2.default;
+
+/***/ }),
+
 /***/ 237:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1510,17 +1492,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _circle = __webpack_require__(715);
+var _source = __webpack_require__(716);
 
-var _circle2 = _interopRequireDefault(_circle);
+var _source2 = _interopRequireDefault(_source);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_circle2.default.install = function (Vue) {
-  Vue.component(_circle2.default.name, _circle2.default);
+_source2.default.install = function (Vue) {
+  Vue.component(_source2.default.name, _source2.default);
 };
 
-exports.default = _circle2.default;
+exports.default = _source2.default;
 
 /***/ }),
 
@@ -1534,17 +1516,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _container = __webpack_require__(716);
+var _circle = __webpack_require__(717);
 
-var _container2 = _interopRequireDefault(_container);
+var _circle2 = _interopRequireDefault(_circle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_container2.default.install = function (Vue) {
-  Vue.component(_container2.default.name, _container2.default);
+_circle2.default.install = function (Vue) {
+  Vue.component(_circle2.default.name, _circle2.default);
 };
 
-exports.default = _container2.default;
+exports.default = _circle2.default;
 
 /***/ }),
 
@@ -1558,7 +1540,31 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _fill = __webpack_require__(717);
+var _container = __webpack_require__(718);
+
+var _container2 = _interopRequireDefault(_container);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_container2.default.install = function (Vue) {
+  Vue.component(_container2.default.name, _container2.default);
+};
+
+exports.default = _container2.default;
+
+/***/ }),
+
+/***/ 240:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _fill = __webpack_require__(719);
 
 var _fill2 = _interopRequireDefault(_fill);
 
@@ -1572,7 +1578,7 @@ exports.default = _fill2.default;
 
 /***/ }),
 
-/***/ 240:
+/***/ 241:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1597,6 +1603,8 @@ var _openlayers2 = _interopRequireDefault(_openlayers);
 var _target = __webpack_require__(35);
 
 var _vlOl = __webpack_require__(8);
+
+__webpack_require__(342);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1644,7 +1652,7 @@ function bindStyleFunction(styleFunc, component) {
 
 /***/ }),
 
-/***/ 241:
+/***/ 242:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1654,7 +1662,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _func = __webpack_require__(240);
+var _func = __webpack_require__(241);
 
 var _func2 = _interopRequireDefault(_func);
 
@@ -1667,7 +1675,7 @@ exports.default = _func2.default;
 
 /***/ }),
 
-/***/ 242:
+/***/ 243:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1677,7 +1685,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _icon = __webpack_require__(718);
+var _icon = __webpack_require__(720);
 
 var _icon2 = _interopRequireDefault(_icon);
 
@@ -1691,7 +1699,7 @@ exports.default = _icon2.default;
 
 /***/ }),
 
-/***/ 243:
+/***/ 244:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1700,7 +1708,7 @@ exports.default = _icon2.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.directives = exports.mixins = exports.VlStyleIcon = exports.VlStyleCircle = exports.VlStyleStroke = exports.VlStyleFill = exports.VlStyleContainer = undefined;
+exports.mixins = exports.StyleFunc = exports.StyleIcon = exports.StyleCircle = exports.StyleStroke = exports.StyleFill = exports.StyleContainer = undefined;
 
 var _style = __webpack_require__(34);
 
@@ -1714,50 +1722,47 @@ var _target = __webpack_require__(35);
 
 var _target2 = _interopRequireDefault(_target);
 
-var _func = __webpack_require__(241);
-
-var _func2 = _interopRequireDefault(_func);
-
-var _container = __webpack_require__(238);
+var _container = __webpack_require__(239);
 
 var _container2 = _interopRequireDefault(_container);
 
-var _fill = __webpack_require__(239);
+var _fill = __webpack_require__(240);
 
 var _fill2 = _interopRequireDefault(_fill);
 
-var _stroke = __webpack_require__(244);
+var _stroke = __webpack_require__(245);
 
 var _stroke2 = _interopRequireDefault(_stroke);
 
-var _circle = __webpack_require__(237);
+var _circle = __webpack_require__(238);
 
 var _circle2 = _interopRequireDefault(_circle);
 
-var _icon = __webpack_require__(242);
+var _icon = __webpack_require__(243);
 
 var _icon2 = _interopRequireDefault(_icon);
 
+var _func = __webpack_require__(242);
+
+var _func2 = _interopRequireDefault(_func);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.VlStyleContainer = _container2.default;
-exports.VlStyleFill = _fill2.default;
-exports.VlStyleStroke = _stroke2.default;
-exports.VlStyleCircle = _circle2.default;
-exports.VlStyleIcon = _icon2.default;
+exports.StyleContainer = _container2.default;
+exports.StyleFill = _fill2.default;
+exports.StyleStroke = _stroke2.default;
+exports.StyleCircle = _circle2.default;
+exports.StyleIcon = _icon2.default;
+exports.StyleFunc = _func2.default;
 var mixins = exports.mixins = {
   style: _style2.default,
   styleImage: _image2.default,
   styleTarget: _target2.default
 };
 
-var directives = exports.directives = {
-  styleFunc: _func2.default
-};
-
 /***/ }),
 
-/***/ 244:
+/***/ 245:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1767,7 +1772,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _stroke = __webpack_require__(719);
+var _stroke = __webpack_require__(721);
 
 var _stroke2 = _interopRequireDefault(_stroke);
 
@@ -1781,7 +1786,7 @@ exports.default = _stroke2.default;
 
 /***/ }),
 
-/***/ 245:
+/***/ 246:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1951,7 +1956,7 @@ var coordTransform = exports.coordTransform = {
 
 /***/ }),
 
-/***/ 246:
+/***/ 247:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1965,7 +1970,7 @@ var _promise = __webpack_require__(50);
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _log = __webpack_require__(274);
+var _log = __webpack_require__(275);
 
 var _log2 = _interopRequireDefault(_log);
 
@@ -2081,7 +2086,7 @@ function flyTo(view, coordinate, zoom) {
 
 /***/ }),
 
-/***/ 247:
+/***/ 248:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2100,23 +2105,23 @@ var _extends2 = __webpack_require__(23);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _reduce2 = __webpack_require__(641);
+var _reduce2 = __webpack_require__(644);
 
 var _reduce3 = _interopRequireDefault(_reduce2);
 
-var _merge2 = __webpack_require__(196);
+var _merge2 = __webpack_require__(197);
 
 var _merge3 = _interopRequireDefault(_merge2);
 
-var _isEmpty2 = __webpack_require__(638);
+var _isEmpty2 = __webpack_require__(640);
 
 var _isEmpty3 = _interopRequireDefault(_isEmpty2);
 
-var _lowerFirst2 = __webpack_require__(640);
+var _lowerFirst2 = __webpack_require__(642);
 
 var _lowerFirst3 = _interopRequireDefault(_lowerFirst2);
 
-var _upperFirst2 = __webpack_require__(643);
+var _upperFirst2 = __webpack_require__(646);
 
 var _upperFirst3 = _interopRequireDefault(_upperFirst2);
 
@@ -2124,7 +2129,7 @@ var _pick2 = __webpack_require__(198);
 
 var _pick3 = _interopRequireDefault(_pick2);
 
-var _flow2 = __webpack_require__(637);
+var _flow2 = __webpack_require__(639);
 
 var _flow3 = _interopRequireDefault(_flow2);
 
@@ -2555,7 +2560,7 @@ function defaultEditStyle() {
 
 /***/ }),
 
-/***/ 248:
+/***/ 249:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2568,7 +2573,7 @@ exports.default = fromOlEvent;
 
 var _Observable = __webpack_require__(7);
 
-__webpack_require__(676);
+__webpack_require__(678);
 
 /**
  * Creates an Observable using OpenLayers event pattern that emits events of a specific type
@@ -2599,7 +2604,7 @@ _Observable.Observable.fromOlEvent = fromOlEvent;
 
 /***/ }),
 
-/***/ 249:
+/***/ 250:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2625,13 +2630,13 @@ var _forEach2 = __webpack_require__(110);
 
 var _forEach3 = _interopRequireDefault(_forEach2);
 
-var _kebabCase2 = __webpack_require__(195);
+var _kebabCase2 = __webpack_require__(196);
 
 var _kebabCase3 = _interopRequireDefault(_kebabCase2);
 
-__webpack_require__(748);
+__webpack_require__(750);
 
-var _highlight = __webpack_require__(342);
+var _highlight = __webpack_require__(344);
 
 var _highlight2 = _interopRequireDefault(_highlight);
 
@@ -3058,37 +3063,59 @@ _highlight2.default.registerLanguage('scss', _scss2.default); //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 _highlight2.default.registerLanguage('xml', _xml2.default);
 _highlight2.default.registerLanguage('javascript', _javascript2.default);
 _highlight2.default.registerLanguage('json', _json2.default);
 _highlight2.default.registerLanguage('bash', _bash2.default);
 
+var computed = {
+  selectedIds: function selectedIds() {
+    return this.selected.map(function (_ref) {
+      var id = _ref.id;
+      return id;
+    });
+  }
+};
+
 var methods = {
   geometryTypeToCompName: function geometryTypeToCompName(type) {
     return 'vl-geom-' + (0, _kebabCase3.default)(type);
   },
-  updateMapView: function updateMapView(_ref) {
-    var center = _ref.center,
-        zoom = _ref.zoom,
-        rotation = _ref.rotation;
+  updateMapView: function updateMapView(_ref2) {
+    var center = _ref2.center,
+        zoom = _ref2.zoom,
+        rotation = _ref2.rotation;
 
     this.center = center;
     this.zoom = zoom;
     this.rotation = rotation;
   },
-  updateGeoloc: function updateGeoloc(_ref2) {
-    var position = _ref2.position;
+  updateGeoloc: function updateGeoloc(_ref3) {
+    var position = _ref3.position;
 
     this.position = position;
   },
-  select: function select(id) {
-    if (this.selected.indexOf(id) === -1) {
-      this.selected.push(id);
+  select: function select(plainFeature) {
+    var i = this.selectedIds.indexOf(plainFeature.id);
+    if (i === -1) {
+      this.selected.push(plainFeature);
     }
   },
-  unselect: function unselect(id) {
-    var i = this.selected.indexOf(id);
+  unselect: function unselect(_ref4) {
+    var id = _ref4.id;
+
+    var i = this.selectedIds.indexOf(id);
     if (i !== -1) {
       this.selected.splice(i, 1);
     }
@@ -3181,6 +3208,9 @@ var methods = {
   toggleLayer: function toggleLayer(layer) {
     this.layers[layer] = !this.layers[layer];
   },
+  selectFilter: function selectFilter(feature) {
+    return feature.layer !== 'my-position';
+  },
   showSourceCode: function showSourceCode() {
     this.sourceCode = true;
   }
@@ -3200,6 +3230,7 @@ var watch = {
 
 exports.default = {
   name: 'app',
+  computed: computed,
   watch: watch,
   methods: methods,
   data: function data() {
@@ -3209,7 +3240,7 @@ exports.default = {
       rotation: 0,
       selected: [],
       countries: [],
-      pacman: __webpack_require__(507).features,
+      pacman: __webpack_require__(509).features,
       position: [],
       layers: {
         osm: false,
@@ -3229,7 +3260,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 250:
+/***/ 251:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3243,15 +3274,11 @@ var _extends2 = __webpack_require__(23);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _omit2 = __webpack_require__(197);
-
-var _omit3 = _interopRequireDefault(_omit2);
-
 var _openlayers = __webpack_require__(0);
 
 var _openlayers2 = _interopRequireDefault(_openlayers);
 
-var _v = __webpack_require__(212);
+var _v = __webpack_require__(213);
 
 var _v2 = _interopRequireDefault(_v);
 
@@ -3301,7 +3328,7 @@ var methods = {
       data: this.data
     };
 
-    var geom = this.feature.getGeometry();
+    var geom = this.feature && this.feature.getGeometry();
     if (geom) {
       obj.geometry = {
         type: geom.getType(),
@@ -3318,10 +3345,13 @@ var methods = {
 
 var watch = {
   id: function id(value) {
-    this.feature.setId(value);
+    if (this.feature) {
+      this.feature.setId(value);
+      this.feature.set('id', value);
+    }
   },
   data: function data(value) {
-    this.feature.setProperties((0, _omit3.default)(['geometry'], value));
+    this.feature && this.feature.set('data', value);
   }
 };
 
@@ -3346,15 +3376,23 @@ exports.default = {
     createFeature.call(this);
   },
   mounted: function mounted() {
-    if (this.source()) {
-      this.source().addFeature(this.feature);
-    } else if (false) {
-      (0, _debug.warn)("Invalid usage of feature component, should have source component among it's ancestors");
-    }
+    var _this2 = this;
+
+    this.$nextTick(function () {
+      if (_this2.source()) {
+        _this2.source().addFeature(_this2.feature);
+      } else if (false) {
+        (0, _debug.warn)("Invalid usage of feature component, should have source component among it's ancestors");
+      }
+    });
   },
   destroyed: function destroyed() {
-    this.source() && this.source().removeFeature(this.feature);
-    this.feature = undefined;
+    var _this3 = this;
+
+    this.$nextTick(function () {
+      _this3.source() && _this3.source().removeFeature(_this3.feature);
+      _this3.feature = undefined;
+    });
   }
 };
 
@@ -3370,7 +3408,11 @@ function createFeature() {
    * @type {ol.Feature}
    * @protected
    */
-  this.feature = new _openlayers2.default.Feature((0, _omit3.default)(['geometry'], this.data));
+  this.feature = new _openlayers2.default.Feature({
+    id: this.id,
+    data: this.data,
+    layer: this.layer() && this.layer().$vm.id
+  });
   this.feature.setId(this.id);
   this.feature.$vm = this;
 
@@ -3379,7 +3421,7 @@ function createFeature() {
 
 /***/ }),
 
-/***/ 251:
+/***/ 252:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3399,7 +3441,7 @@ var _openlayers2 = _interopRequireDefault(_openlayers);
 
 var _Observable = __webpack_require__(7);
 
-__webpack_require__(205);
+__webpack_require__(206);
 
 __webpack_require__(114);
 
@@ -3418,8 +3460,6 @@ var _rxSubs2 = _interopRequireDefault(_rxSubs);
 var _vlOl = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//  import positionMarker from './position-marker.svg'
 
 var props = {
   tracking: {
@@ -3465,9 +3505,12 @@ exports.default = {
     subscribeToGeolocation.call(this);
   },
   destroyed: function destroyed() {
-    this.geoloc.setTracking(false);
-    //      this.serviceLayer() && this.serviceLayer().getSource().removeFeature(this.positionFeature)
-    this.geoloc = this.positionFeature = undefined;
+    var _this = this;
+
+    this.$nextTick(function () {
+      _this.geoloc.setTracking(false);
+      _this.geoloc = undefined;
+    });
   }
 };
 
@@ -3486,31 +3529,16 @@ function createGeolocApi() {
   });
 
   this.geoloc.$vm = this;
-  /**
-   * @type {ol.Feature}
-   * @protected
-   */
-  //    this.positionFeature = new ol.Feature({
-  //      internal: true
-  //    })
-  //    this.positionFeature.setStyle(new ol.style.Style({
-  //      image: new ol.style.Icon({
-  //        src: positionMarker,
-  //        scale: 0.85,
-  //        anchor: [ 0.5, 1 ]
-  //      })
-  //    }))
-  //    this.serviceLayer() && this.serviceLayer().getSource().addFeature(this.positionFeature)
 
   return this.geoloc;
 }
 
 function subscribeToGeolocation() {
-  var _this = this;
+  var _this2 = this;
 
-  var geolocChanges = _Observable.Observable.fromOlEvent(this.geoloc, 'change').throttleTime(100).map(function () {
-    var position = _openlayers2.default.proj.toLonLat(_this.geoloc.getPosition(), _this.projection);
-    var accuracy = _this.geoloc.getAccuracy();
+  var geolocChanges = _Observable.Observable.fromOlEvent(this.geoloc, 'change').throttleTime(1000).map(function () {
+    var position = _openlayers2.default.proj.toLonLat(_this2.geoloc.getPosition(), _this2.projection);
+    var accuracy = _this2.geoloc.getAccuracy();
 
     return { position: position, accuracy: accuracy };
   }).distinctUntilChanged(function (a, b) {
@@ -3521,15 +3549,15 @@ function subscribeToGeolocation() {
     var position = _ref.position,
         accuracy = _ref.accuracy;
 
-    _this.currentPosition = position;
-    _this.currentAccuracy = accuracy;
-    _this.$emit('change', { position: position, accuracy: accuracy });
+    _this2.currentPosition = position;
+    _this2.currentAccuracy = accuracy;
+    _this2.$emit('change', { position: position, accuracy: accuracy });
   }, _debug.errordbg);
 }
 
 /***/ }),
 
-/***/ 252:
+/***/ 253:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3543,7 +3571,7 @@ var _openlayers = __webpack_require__(0);
 
 var _openlayers2 = _interopRequireDefault(_openlayers);
 
-var _geom = __webpack_require__(16);
+var _geom = __webpack_require__(17);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -3576,7 +3604,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 253:
+/***/ 254:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3590,7 +3618,7 @@ var _openlayers = __webpack_require__(0);
 
 var _openlayers2 = _interopRequireDefault(_openlayers);
 
-var _geom = __webpack_require__(16);
+var _geom = __webpack_require__(17);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -3623,7 +3651,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 254:
+/***/ 255:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3637,7 +3665,7 @@ var _openlayers = __webpack_require__(0);
 
 var _openlayers2 = _interopRequireDefault(_openlayers);
 
-var _geom = __webpack_require__(16);
+var _geom = __webpack_require__(17);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -3670,7 +3698,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 255:
+/***/ 256:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3684,7 +3712,7 @@ var _openlayers = __webpack_require__(0);
 
 var _openlayers2 = _interopRequireDefault(_openlayers);
 
-var _geom = __webpack_require__(16);
+var _geom = __webpack_require__(17);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -3717,7 +3745,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 256:
+/***/ 257:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3731,7 +3759,7 @@ var _openlayers = __webpack_require__(0);
 
 var _openlayers2 = _interopRequireDefault(_openlayers);
 
-var _geom = __webpack_require__(16);
+var _geom = __webpack_require__(17);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -3768,7 +3796,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 257:
+/***/ 258:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3782,7 +3810,7 @@ var _openlayers = __webpack_require__(0);
 
 var _openlayers2 = _interopRequireDefault(_openlayers);
 
-var _geom = __webpack_require__(16);
+var _geom = __webpack_require__(17);
 
 var _geom2 = _interopRequireDefault(_geom);
 
@@ -3815,7 +3843,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 258:
+/***/ 259:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3829,9 +3857,13 @@ var _extends2 = __webpack_require__(23);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _difference2 = __webpack_require__(636);
+var _differenceWith2 = __webpack_require__(638);
 
-var _difference3 = _interopRequireDefault(_difference2);
+var _differenceWith3 = _interopRequireDefault(_differenceWith2);
+
+var _constant2 = __webpack_require__(637);
+
+var _constant3 = _interopRequireDefault(_constant2);
 
 var _forEach2 = __webpack_require__(110);
 
@@ -3874,10 +3906,27 @@ var props = {
     default: function _default() {
       return [];
     }
+  },
+  filter: {
+    type: Function,
+    default: (0, _constant3.default)(true)
   }
 };
 
-var interactionRefresh = _interaction2.default.methods.refresh;
+var computed = {
+  selectedIds: function selectedIds() {
+    return this.currentSelected.map(function (feature) {
+      return feature.id;
+    });
+  }
+};
+
+var _interaction$methods = _interaction2.default.methods,
+    interactionRefresh = _interaction$methods.refresh,
+    interactionMountInteraction = _interaction$methods.mountInteraction,
+    interactionUnmountInteraction = _interaction$methods.unmountInteraction;
+
+var defaultStyles = _vlOl.style.defaultEditStyle();
 var methods = {
   /**
    * @protected
@@ -3891,7 +3940,6 @@ var methods = {
    * @protected
    */
   createInteraction: function createInteraction() {
-    var defaultStyles = _vlOl.style.defaultEditStyle();
     var styleFunc = (0, _target.createStyleFunc)(this);
     var style = function __selectStyleFunc(feature, resolution) {
       var styles = styleFunc(feature, resolution);
@@ -3901,13 +3949,16 @@ var methods = {
 
       return feature.getGeometry() != null ? defaultStyles[feature.getGeometry().getType()] : null;
     };
-    var serviceFeatures = this.serviceLayer() && this.serviceLayer().getSource().getFeatures();
+
+    var filterFunc = this.filter;
+    var filter = function __selectFilter(feature, layer) {
+      return filterFunc(feature.$vm.plain());
+    };
 
     return new _openlayers2.default.interaction.Select({
       multi: this.multi,
-      filter: function filter(feature) {
-        return !serviceFeatures.includes(feature);
-      },
+      wrapX: this.wrapX,
+      filter: filter,
       style: style
     });
   },
@@ -3917,29 +3968,51 @@ var methods = {
   },
 
   /**
-   * @param {number} id
+   * @param {Object} plainFeature
+   * @param {string|number} plainFeature.id
+   * @param {string|number} plainFeature.layer
    */
-  select: function select(id) {
+  select: function select(_ref) {
+    var id = _ref.id,
+        layer = _ref.layer;
+
+    if (!this.map() || this.selectedIds.includes(id)) return;
+
     var selection = this.interaction.getFeatures();
-    var layers = this.map().getLayers().getArray().filter(function (layer) {
-      return layer.$vm && layer instanceof _openlayers2.default.layer.Vector;
-    });
-
-    if (this.currentSelected.includes(id)) return;
-
     var feature = void 0;
-    (0, _forEach3.default)(function (layer) {
-      feature = layer.getSource().getFeatureById(id);
-      return !feature;
-    }, layers);
+
+    if (id) {
+      if (layer) {
+        var _layer = this.map().getLayers().getArray().find(function (layer) {
+          return layer.id === layer;
+        });
+        if (_layer) {
+          feature = _layer.getSource().getFeatureById(id);
+        }
+      } else {
+        var layers = this.map().getLayers().getArray().filter(function (layer) {
+          return layer instanceof _openlayers2.default.layer.Vector;
+        });
+
+        (0, _forEach3.default)(function (layer) {
+          feature = layer.getSource().getFeatureById(id);
+          return !feature;
+        }, layers);
+      }
+    }
 
     feature && selection.push(feature);
   },
 
   /**
-   * @param {number} id
+   * @param {Object} plainFeature
+   * @param {string|number} plainFeature.id
    */
-  unselect: function unselect(id) {
+  unselect: function unselect(_ref2) {
+    var id = _ref2.id;
+
+    if (!this.map() || !this.selectedIds.includes(id)) return;
+
     var selection = this.interaction.getFeatures();
     var selectionArray = selection.getArray();
     var idx = selectionArray.findIndex(function (feature) {
@@ -3959,22 +4032,31 @@ var methods = {
   setStyle: function setStyle(style) {
     this.styles = style;
     this.refresh();
+  },
+  mountInteraction: function mountInteraction() {
+    var _this = this;
+
+    interactionMountInteraction.call(this);
+    this.$nextTick(function () {
+      return _this.currentSelected.forEach(_this.select);
+    });
+  },
+  unmountInteraction: function unmountInteraction() {
+    this.currentSelected.forEach(this.unselect);
+    interactionUnmountInteraction.call(this);
   }
 };
 
+var diffById = (0, _differenceWith3.default)(function (a, b) {
+  return a.id === b.id;
+});
 var watch = {
   selected: function selected(_selected) {
-    var _this = this;
+    var forSelect = diffById(_selected, this.currentSelected);
+    var forUnselect = diffById(this.currentSelected, _selected);
 
-    var forSelect = (0, _difference3.default)(_selected, this.currentSelected);
-    var forUnselect = (0, _difference3.default)(this.currentSelected, _selected);
-
-    forSelect.forEach(function (id) {
-      return _this.select(id);
-    });
-    forUnselect.forEach(function (id) {
-      return _this.unselect(id);
-    });
+    forSelect.forEach(this.select);
+    forUnselect.forEach(this.unselect);
   }
 };
 
@@ -3985,6 +4067,7 @@ exports.default = {
   mixins: [_interaction2.default, _target2.default],
   inject: ['map', 'serviceLayer'],
   props: props,
+  computed: computed,
   methods: methods,
   watch: watch,
   provide: function provide() {
@@ -4004,24 +4087,25 @@ function subscribeToInteractionChanges() {
   var selection = this.interaction.getFeatures();
 
   this.rxSubs.select = _Observable.Observable.fromOlEvent(selection, 'add', function (evt) {
-    return evt.element;
+    return evt.element.$vm.plain();
   }).subscribe(function (feature) {
-    _this2.currentSelected.push(feature.getId());
-    _this2.$emit('select', feature.getId());
+    _this2.currentSelected.push(feature);
+    _this2.$emit('select', feature);
   }, _debug.errordbg);
   this.rxSubs.unselect = _Observable.Observable.fromOlEvent(selection, 'remove', function (evt) {
-    return evt.element;
+    return evt.element.$vm.plain();
   }).subscribe(function (feature) {
-    _this2.currentSelected = _this2.currentSelected.filter(function (x) {
-      return x !== feature.getId();
+    _this2.currentSelected = _this2.currentSelected.filter(function (_ref3) {
+      var id = _ref3.id;
+      return id !== feature.id;
     });
-    _this2.$emit('unselect', feature.getId());
+    _this2.$emit('unselect', feature);
   }, _debug.errordbg);
 }
 
 /***/ }),
 
-/***/ 259:
+/***/ 260:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4037,14 +4121,17 @@ var _tileBase2 = _interopRequireDefault(_tileBase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var props = {};
+
 exports.default = {
   name: 'vl-layer-tile',
-  mixins: [_tileBase2.default]
+  mixins: [_tileBase2.default],
+  props: props
 };
 
 /***/ }),
 
-/***/ 260:
+/***/ 261:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4060,14 +4147,17 @@ var _vectorBase2 = _interopRequireDefault(_vectorBase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var props = {};
+
 exports.default = {
   name: 'vl-layer-vector',
-  mixins: [_vectorBase2.default]
+  mixins: [_vectorBase2.default],
+  props: props
 };
 
 /***/ }),
 
-/***/ 261:
+/***/ 262:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4092,7 +4182,10 @@ var props = {
     type: Boolean,
     default: false
   },
-  pixelRatio: Number,
+  pixelRatio: {
+    type: Number,
+    default: 1
+  },
   renderer: [String, Array],
   logo: [String, Object],
   keyboardEventTarget: [String, Node],
@@ -4151,15 +4244,19 @@ exports.default = {
   mounted: function mounted() {
     var _this2 = this;
 
-    this.map.setTarget(this.$refs.map);
     this.$nextTick(function () {
+      _this2.map.setTarget(_this2.$refs.map);
       _this2.refresh();
     });
   },
   destroyed: function destroyed() {
-    this.serviceLayer.setMap(undefined);
-    this.map.setTarget(undefined);
-    this.map = this.serviceLayer = undefined;
+    var _this3 = this;
+
+    this.$nextTick(function () {
+      _this3.serviceLayer.setMap(undefined);
+      _this3.map.setTarget(undefined);
+      _this3.map = _this3.serviceLayer = undefined;
+    });
   }
 };
 
@@ -4197,7 +4294,7 @@ function createMap() {
 
 /***/ }),
 
-/***/ 262:
+/***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4225,7 +4322,7 @@ var _openlayers2 = _interopRequireDefault(_openlayers);
 
 var _Observable = __webpack_require__(7);
 
-__webpack_require__(205);
+__webpack_require__(206);
 
 __webpack_require__(114);
 
@@ -4402,11 +4499,15 @@ exports.default = {
     createView.call(this);
   },
   mounted: function mounted() {
-    this.mountView();
+    this.$nextTick(this.mountView);
   },
   destroyed: function destroyed() {
-    this.unmountView();
-    this.view = undefined;
+    var _this2 = this;
+
+    this.$nextTick(function () {
+      _this2.unmountView();
+      _this2.view = undefined;
+    });
   }
 };
 
@@ -4435,12 +4536,12 @@ function createView() {
  * Subscribe to OpenLayers significant events
  */
 function subscribeToViewChanges() {
-  var _this2 = this;
+  var _this3 = this;
 
-  var viewChanges = _Observable.Observable.fromOlEvent(this.view, 'change').throttleTime(300).map(function () {
-    var center = _openlayers2.default.proj.toLonLat(_this2.view.getCenter(), _this2.projection);
-    var zoom = Math.ceil(_this2.view.getZoom());
-    var rotation = _this2.view.getRotation();
+  var viewChanges = _Observable.Observable.fromOlEvent(this.view, 'change').throttleTime(1000).map(function () {
+    var center = _openlayers2.default.proj.toLonLat(_this3.view.getCenter(), _this3.projection);
+    var zoom = Math.ceil(_this3.view.getZoom());
+    var rotation = _this3.view.getRotation();
 
     return { center: center, zoom: zoom, rotation: rotation };
   }).distinctUntilChanged(function (a, b) {
@@ -4452,16 +4553,16 @@ function subscribeToViewChanges() {
         zoom = _ref2.zoom,
         rotation = _ref2.rotation;
 
-    _this2.currentCenter = center;
-    _this2.currentZoom = zoom;
-    _this2.currentRotation = rotation;
-    _this2.$emit('change', { center: center, zoom: zoom, rotation: rotation });
+    _this3.currentCenter = center;
+    _this3.currentZoom = zoom;
+    _this3.currentRotation = rotation;
+    _this3.$emit('change', { center: center, zoom: zoom, rotation: rotation });
   }, _debug.errordbg);
 }
 
 /***/ }),
 
-/***/ 263:
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4543,7 +4644,7 @@ function _tileNameSuffix(ratio) {
 
 /***/ }),
 
-/***/ 264:
+/***/ 265:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4598,7 +4699,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 265:
+/***/ 266:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4614,14 +4715,17 @@ var _vectorBase2 = _interopRequireDefault(_vectorBase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var props = {};
+
 exports.default = {
   name: 'vl-source-vector',
-  mixins: [_vectorBase2.default]
+  mixins: [_vectorBase2.default],
+  props: props
 };
 
 /***/ }),
 
-/***/ 266:
+/***/ 267:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4637,14 +4741,17 @@ var _xyzBase2 = _interopRequireDefault(_xyzBase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var props = {};
+
 exports.default = {
   name: 'vl-source-xyz',
-  mixins: [_xyzBase2.default]
+  mixins: [_xyzBase2.default],
+  props: props
 };
 
 /***/ }),
 
-/***/ 267:
+/***/ 268:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4734,7 +4841,7 @@ function setStroke(stroke) {
 
 /***/ }),
 
-/***/ 268:
+/***/ 269:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4886,7 +4993,7 @@ function setImage(image) {
 
 /***/ }),
 
-/***/ 269:
+/***/ 270:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4957,7 +5064,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 270:
+/***/ 271:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5089,7 +5196,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 271:
+/***/ 272:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5199,7 +5306,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 317:
+/***/ 318:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
@@ -5214,21 +5321,6 @@ exports.push([module.i, "/*\nDate: 24 Fev 2015\nAuthor: Pedro Oliveira <kanytu@g
 
 /***/ }),
 
-/***/ 318:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)();
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ 319:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5237,7 +5329,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5252,7 +5344,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5267,7 +5359,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5282,7 +5374,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5297,7 +5389,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5312,7 +5404,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5327,7 +5419,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5342,7 +5434,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5357,7 +5449,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5372,7 +5464,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5387,7 +5479,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5402,7 +5494,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5417,7 +5509,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5432,7 +5524,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */\n", ""]);
 
 // exports
 
@@ -5447,7 +5539,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "/**\n * VueLayers SCSS mixins.\n * This part of the VueLayers package.\n */\n.ol-control, .ol-scale-line {\n  position: absolute;\n  padding: 2px;\n}\n.ol-box {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  border-radius: 2px;\n  border: 2px solid #00f;\n}\n.ol-mouse-position {\n  top: 8px;\n  right: 8px;\n  position: absolute;\n}\n.ol-scale-line {\n  background: rgba(0, 60, 136, 0.3);\n  border-radius: 4px;\n  bottom: 8px;\n  left: 8px;\n}\n.ol-scale-line-inner {\n  border: 1px solid #eee;\n  border-top: none;\n  color: #eee;\n  font-size: 10px;\n  text-align: center;\n  margin: 1px;\n  will-change: contents,width;\n}\n.ol-overlay-container {\n  will-change: left,right,top,bottom;\n}\n.ol-unsupported {\n  display: none;\n}\n.ol-viewport .ol-unselectable {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n}\n.ol-control {\n  background-color: rgba(255, 255, 255, 0.4);\n  border-radius: 4px;\n}\n.ol-control:hover {\n  background-color: rgba(255, 255, 255, 0.6);\n}\n.ol-zoom {\n  top: .5em;\n  left: .5em;\n}\n.ol-rotate {\n  top: .5em;\n  right: .5em;\n  -webkit-transition: opacity .25s linear,visibility 0s linear;\n  transition: opacity .25s linear,visibility 0s linear;\n}\n.ol-rotate.ol-hidden {\n  opacity: 0;\n  visibility: hidden;\n  -webkit-transition: opacity .25s linear,visibility 0s linear .25s;\n  transition: opacity .25s linear,visibility 0s linear .25s;\n}\n.ol-zoom-extent {\n  top: 4.643em;\n  left: .5em;\n}\n.ol-full-screen {\n  right: .5em;\n  top: .5em;\n}\n@media print {\n.ol-control {\n    display: none;\n}\n}\n.ol-control button {\n  display: block;\n  margin: 1px;\n  padding: 0;\n  color: #fff;\n  font-size: 1.14em;\n  font-weight: 700;\n  text-decoration: none;\n  text-align: center;\n  height: 1.375em;\n  width: 1.375em;\n  line-height: .4em;\n  background-color: rgba(0, 60, 136, 0.5);\n  border: none;\n  border-radius: 2px;\n}\n.ol-control button::-moz-focus-inner {\n  border: none;\n  padding: 0;\n}\n.ol-zoom-extent button {\n  line-height: 1.4em;\n}\n.ol-compass {\n  display: block;\n  font-weight: 400;\n  font-size: 1.2em;\n  will-change: transform;\n}\n.ol-touch .ol-control button {\n  font-size: 1.5em;\n}\n.ol-touch .ol-zoom-extent {\n  top: 5.5em;\n}\n.ol-control button:focus, .ol-control button:hover {\n  text-decoration: none;\n  background-color: rgba(0, 60, 136, 0.7);\n}\n.ol-zoom .ol-zoom-in {\n  border-radius: 2px 2px 0 0;\n}\n.ol-zoom .ol-zoom-out {\n  border-radius: 0 0 2px 2px;\n}\n.ol-attribution {\n  text-align: right;\n  bottom: .5em;\n  right: .5em;\n  max-width: -webkit-calc(100% - 1.3em);\n  max-width: calc(100% - 1.3em);\n}\n.ol-attribution ul {\n  margin: 0;\n  padding: 0 .5em;\n  font-size: .7rem;\n  line-height: 1.375em;\n  color: #000;\n  text-shadow: 0 0 2px #fff;\n}\n.ol-attribution li {\n  display: inline;\n  list-style: none;\n  line-height: inherit;\n}\n.ol-attribution li:not(:last-child):after {\n  content: \" \";\n}\n.ol-attribution img {\n  max-height: 2em;\n  max-width: inherit;\n  vertical-align: middle;\n}\n.ol-attribution button, .ol-attribution ul {\n  display: inline-block;\n}\n.ol-attribution.ol-collapsed ul {\n  display: none;\n}\n.ol-attribution.ol-logo-only ul {\n  display: block;\n}\n.ol-attribution:not(.ol-collapsed) {\n  background: rgba(255, 255, 255, 0.8);\n}\n.ol-attribution.ol-uncollapsible {\n  bottom: 0;\n  right: 0;\n  border-radius: 4px 0 0;\n  height: 1.1em;\n  line-height: 1em;\n}\n.ol-attribution.ol-logo-only {\n  background: 0 0;\n  bottom: .4em;\n  height: 1.1em;\n  line-height: 1em;\n}\n.ol-attribution.ol-uncollapsible img {\n  margin-top: -.2em;\n  max-height: 1.6em;\n}\n.ol-attribution.ol-logo-only button, .ol-attribution.ol-uncollapsible button {\n  display: none;\n}\n.ol-zoomslider {\n  top: 4.5em;\n  left: .5em;\n  height: 200px;\n}\n.ol-zoomslider button {\n  position: relative;\n  height: 10px;\n}\n.ol-touch .ol-zoomslider {\n  top: 5.5em;\n}\n.ol-overviewmap {\n  left: .5em;\n  bottom: .5em;\n}\n.ol-overviewmap.ol-uncollapsible {\n  bottom: 0;\n  left: 0;\n  border-radius: 0 4px 0 0;\n}\n.ol-overviewmap .ol-overviewmap-map, .ol-overviewmap button {\n  display: inline-block;\n}\n.ol-overviewmap .ol-overviewmap-map {\n  border: 1px solid #7b98bc;\n  height: 150px;\n  margin: 2px;\n  width: 150px;\n}\n.ol-overviewmap:not(.ol-collapsed) button {\n  bottom: 1px;\n  left: 2px;\n  position: absolute;\n}\n.ol-overviewmap.ol-collapsed .ol-overviewmap-map, .ol-overviewmap.ol-uncollapsible button {\n  display: none;\n}\n.ol-overviewmap:not(.ol-collapsed) {\n  background: rgba(255, 255, 255, 0.8);\n}\n.ol-overviewmap-box {\n  border: 2px dotted rgba(0, 60, 136, 0.7);\n}\n.vl-map, .vl-map .map {\n  width: 100%;\n  height: 100%;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5459,10 +5551,10 @@ exports.push([module.i, "/**\n * VueLayers SCSS mixins.\n * This part of the Vue
 
 exports = module.exports = __webpack_require__(1)();
 // imports
-exports.i(__webpack_require__(317), "");
+
 
 // module
-exports.push([module.i, "\nhtml, body, #app {\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  font-family: Helvetica, Arial, sans-serif;\n  overflow: hidden;\n}\nhtml *, body *, #app * {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n}\n.controls {\n  position: absolute;\n  bottom: 10px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n      -ms-transform: translateX(-50%);\n          transform: translateX(-50%);\n  width: 70vw;\n  background: rgba(255, 255, 255, 0.7);\n  -webkit-box-shadow: 0 0 20px rgba(2, 2, 2, 0.1);\n          box-shadow: 0 0 20px rgba(2, 2, 2, 0.1);\n  padding: 5px;\n  text-align: center;\n}\n.controls > button {\n    margin: 5px;\n    padding: 5px 10px;\n    text-transform: uppercase;\n}\n#source-code {\n  overflow: auto;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  padding: 20px;\n  background: #ffffff;\n}\n#source-code .controls {\n    position: relative;\n}\n.slide-enter, .slide-leave-to {\n  -webkit-transform: translateY(100%);\n      -ms-transform: translateY(100%);\n          transform: translateY(100%);\n}\n.slide-enter-active, .slide-leave-active {\n  -webkit-transition: all .3s ease-out;\n  transition: all .3s ease-out;\n}\n", ""]);
+exports.push([module.i, "/**\n * VueLayers SCSS mixins.\n * This part of the VueLayers package.\n */\n.ol-control, .ol-scale-line {\n  position: absolute;\n  padding: 2px;\n}\n.ol-box {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  border-radius: 2px;\n  border: 2px solid #00f;\n}\n.ol-mouse-position {\n  top: 8px;\n  right: 8px;\n  position: absolute;\n}\n.ol-scale-line {\n  background: rgba(0, 60, 136, 0.3);\n  border-radius: 4px;\n  bottom: 8px;\n  left: 8px;\n}\n.ol-scale-line-inner {\n  border: 1px solid #eee;\n  border-top: none;\n  color: #eee;\n  font-size: 10px;\n  text-align: center;\n  margin: 1px;\n  will-change: contents,width;\n}\n.ol-overlay-container {\n  will-change: left,right,top,bottom;\n}\n.ol-unsupported {\n  display: none;\n}\n.ol-viewport .ol-unselectable {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n}\n.ol-control {\n  background-color: rgba(255, 255, 255, 0.4);\n  border-radius: 4px;\n}\n.ol-control:hover {\n  background-color: rgba(255, 255, 255, 0.6);\n}\n.ol-zoom {\n  top: .5em;\n  left: .5em;\n}\n.ol-rotate {\n  top: .5em;\n  right: .5em;\n  -webkit-transition: opacity .25s linear,visibility 0s linear;\n  transition: opacity .25s linear,visibility 0s linear;\n}\n.ol-rotate.ol-hidden {\n  opacity: 0;\n  visibility: hidden;\n  -webkit-transition: opacity .25s linear,visibility 0s linear .25s;\n  transition: opacity .25s linear,visibility 0s linear .25s;\n}\n.ol-zoom-extent {\n  top: 4.643em;\n  left: .5em;\n}\n.ol-full-screen {\n  right: .5em;\n  top: .5em;\n}\n@media print {\n.ol-control {\n    display: none;\n}\n}\n.ol-control button {\n  display: block;\n  margin: 1px;\n  padding: 0;\n  color: #fff;\n  font-size: 1.14em;\n  font-weight: 700;\n  text-decoration: none;\n  text-align: center;\n  height: 1.375em;\n  width: 1.375em;\n  line-height: .4em;\n  background-color: rgba(0, 60, 136, 0.5);\n  border: none;\n  border-radius: 2px;\n}\n.ol-control button::-moz-focus-inner {\n  border: none;\n  padding: 0;\n}\n.ol-zoom-extent button {\n  line-height: 1.4em;\n}\n.ol-compass {\n  display: block;\n  font-weight: 400;\n  font-size: 1.2em;\n  will-change: transform;\n}\n.ol-touch .ol-control button {\n  font-size: 1.5em;\n}\n.ol-touch .ol-zoom-extent {\n  top: 5.5em;\n}\n.ol-control button:focus, .ol-control button:hover {\n  text-decoration: none;\n  background-color: rgba(0, 60, 136, 0.7);\n}\n.ol-zoom .ol-zoom-in {\n  border-radius: 2px 2px 0 0;\n}\n.ol-zoom .ol-zoom-out {\n  border-radius: 0 0 2px 2px;\n}\n.ol-attribution {\n  text-align: right;\n  bottom: .5em;\n  right: .5em;\n  max-width: -webkit-calc(100% - 1.3em);\n  max-width: calc(100% - 1.3em);\n}\n.ol-attribution ul {\n  margin: 0;\n  padding: 0 .5em;\n  font-size: .7rem;\n  line-height: 1.375em;\n  color: #000;\n  text-shadow: 0 0 2px #fff;\n}\n.ol-attribution li {\n  display: inline;\n  list-style: none;\n  line-height: inherit;\n}\n.ol-attribution li:not(:last-child):after {\n  content: \" \";\n}\n.ol-attribution img {\n  max-height: 2em;\n  max-width: inherit;\n  vertical-align: middle;\n}\n.ol-attribution button, .ol-attribution ul {\n  display: inline-block;\n}\n.ol-attribution.ol-collapsed ul {\n  display: none;\n}\n.ol-attribution.ol-logo-only ul {\n  display: block;\n}\n.ol-attribution:not(.ol-collapsed) {\n  background: rgba(255, 255, 255, 0.8);\n}\n.ol-attribution.ol-uncollapsible {\n  bottom: 0;\n  right: 0;\n  border-radius: 4px 0 0;\n  height: 1.1em;\n  line-height: 1em;\n}\n.ol-attribution.ol-logo-only {\n  background: 0 0;\n  bottom: .4em;\n  height: 1.1em;\n  line-height: 1em;\n}\n.ol-attribution.ol-uncollapsible img {\n  margin-top: -.2em;\n  max-height: 1.6em;\n}\n.ol-attribution.ol-logo-only button, .ol-attribution.ol-uncollapsible button {\n  display: none;\n}\n.ol-zoomslider {\n  top: 4.5em;\n  left: .5em;\n  height: 200px;\n}\n.ol-zoomslider button {\n  position: relative;\n  height: 10px;\n}\n.ol-touch .ol-zoomslider {\n  top: 5.5em;\n}\n.ol-overviewmap {\n  left: .5em;\n  bottom: .5em;\n}\n.ol-overviewmap.ol-uncollapsible {\n  bottom: 0;\n  left: 0;\n  border-radius: 0 4px 0 0;\n}\n.ol-overviewmap .ol-overviewmap-map, .ol-overviewmap button {\n  display: inline-block;\n}\n.ol-overviewmap .ol-overviewmap-map {\n  border: 1px solid #7b98bc;\n  height: 150px;\n  margin: 2px;\n  width: 150px;\n}\n.ol-overviewmap:not(.ol-collapsed) button {\n  bottom: 1px;\n  left: 2px;\n  position: absolute;\n}\n.ol-overviewmap.ol-collapsed .ol-overviewmap-map, .ol-overviewmap.ol-uncollapsible button {\n  display: none;\n}\n.ol-overviewmap:not(.ol-collapsed) {\n  background: rgba(255, 255, 255, 0.8);\n}\n.ol-overviewmap-box {\n  border: 2px dotted rgba(0, 60, 136, 0.7);\n}\n.vl-map, .vl-map .map {\n  width: 100%;\n  height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -5474,10 +5566,10 @@ exports.push([module.i, "\nhtml, body, #app {\n  width: 100%;\n  height: 100%;\n
 
 exports = module.exports = __webpack_require__(1)();
 // imports
-
+exports.i(__webpack_require__(318), "");
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
+exports.push([module.i, "\nhtml, body, #app {\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  font-family: Helvetica, Arial, sans-serif;\n  overflow: hidden;\n}\nhtml *, body *, #app * {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n}\n.controls {\n  position: absolute;\n  bottom: 10px;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n      -ms-transform: translateX(-50%);\n          transform: translateX(-50%);\n  width: 70vw;\n  background: rgba(255, 255, 255, 0.7);\n  -webkit-box-shadow: 0 0 20px rgba(2, 2, 2, 0.1);\n          box-shadow: 0 0 20px rgba(2, 2, 2, 0.1);\n  padding: 5px;\n  text-align: center;\n}\n.controls > button {\n    margin: 5px;\n    padding: 5px 10px;\n    text-transform: uppercase;\n}\n#source-code {\n  overflow: auto;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  padding: 20px;\n  background: #ffffff;\n}\n#source-code .controls {\n    position: relative;\n}\n.slide-enter, .slide-leave-to {\n  -webkit-transform: translateY(100%);\n      -ms-transform: translateY(100%);\n          transform: translateY(100%);\n}\n.slide-enter-active, .slide-leave-active {\n  -webkit-transition: all .3s ease-out;\n  transition: all .3s ease-out;\n}\n", ""]);
 
 // exports
 
@@ -5492,7 +5584,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
 
 // exports
 
@@ -5507,7 +5599,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
@@ -5522,7 +5614,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
 
 // exports
 
@@ -5537,7 +5629,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */\n", ""]);
 
 // exports
 
@@ -5594,7 +5686,12 @@ var methods = {
     throw new Error('Not implemented method');
   },
   refresh: function refresh() {
-    this.$nextTick(this.mountStyle);
+    var _this = this;
+
+    this.$nextTick(function () {
+      _this.unmountStyle();
+      _this.mountStyle();
+    });
   }
 };
 
@@ -5607,11 +5704,15 @@ exports.default = {
     // Create style in  mounted hook because of some ol style classes doesn't have
     // setters for all inner objects. This setters are emulated through method: getStyleTarget
     this.initialize();
-    this.mountStyle();
+    this.$nextTick(this.mountStyle);
   },
   destroyed: function destroyed() {
-    this.unmountStyle();
-    this.style = undefined;
+    var _this2 = this;
+
+    this.$nextTick(function () {
+      _this2.unmountStyle();
+      _this2.style = undefined;
+    });
   }
 };
 
@@ -5625,10 +5726,32 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub styles */", ""]);
 
 // exports
 
+
+/***/ }),
+
+/***/ 341:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)();
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* stub style  */", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 342:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -5642,7 +5765,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _kebabCase2 = __webpack_require__(195);
+var _kebabCase2 = __webpack_require__(196);
 
 var _kebabCase3 = _interopRequireDefault(_kebabCase2);
 
@@ -5672,7 +5795,7 @@ exports.default = {
       var styleTarget = this.styleTarget();
 
       if (styleTarget) {
-        if (this.styles && this.styles.length) {
+        if (this.styles === null || Array.isArray(this.styles) && this.styles.length) {
           styleTarget.setStyle((0, _isFunction3.default)(this.styles) ? this.styles : createStyleFunc(this));
         } else {
           styleTarget.setStyle(undefined);
@@ -5687,15 +5810,16 @@ exports.default = {
 };
 // todo implement removed, aka null style
 
-function createStyleFunc(styleTarget) {
+function createStyleFunc(vm) {
   return function __styleTargetStyleFunc(feature, resolution) {
-    if (!styleTarget.styles || !styleTarget.styles.length) return null;
+    if (vm.styles === null) return null;
+    if (!vm.styles.length) return;
 
     var plainFeature = feature.$vm ? feature.$vm.plain() : feature.getProperties();
-    if (!plainFeature.geometry) return null;
+    if (!plainFeature.geometry) return;
 
     var styles = [];
-    styleTarget.styles.forEach(function (_ref) {
+    vm.styles.forEach(function (_ref) {
       var style = _ref.style,
           geomType = _ref.geomType;
 
@@ -5834,7 +5958,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fromOlEvent = undefined;
 
-var _fromOlEvent2 = __webpack_require__(248);
+var _fromOlEvent2 = __webpack_require__(249);
 
 var _fromOlEvent3 = _interopRequireDefault(_fromOlEvent2);
 
@@ -5846,7 +5970,7 @@ exports.fromOlEvent = _fromOlEvent3.default; /**
 
 /***/ }),
 
-/***/ 507:
+/***/ 509:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -5999,18 +6123,18 @@ module.exports = {
 
 /***/ }),
 
-/***/ 698:
+/***/ 700:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(746)
+__webpack_require__(748)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(250),
+  __webpack_require__(251),
   /* template */
-  __webpack_require__(723),
+  __webpack_require__(725),
   /* scopeId */
   null,
   /* cssModules */
@@ -6038,16 +6162,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 699:
+/***/ 701:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(733)
+__webpack_require__(735)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(251),
+  __webpack_require__(252),
   /* template */
   null,
   /* scopeId */
@@ -6076,16 +6200,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 700:
+/***/ 702:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(732)
+__webpack_require__(734)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(252),
+  __webpack_require__(253),
   /* template */
   null,
   /* scopeId */
@@ -6114,16 +6238,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 701:
+/***/ 703:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(726)
+__webpack_require__(728)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(253),
+  __webpack_require__(254),
   /* template */
   null,
   /* scopeId */
@@ -6152,16 +6276,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 702:
+/***/ 704:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(724)
+__webpack_require__(726)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(254),
+  __webpack_require__(255),
   /* template */
   null,
   /* scopeId */
@@ -6190,16 +6314,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 703:
+/***/ 705:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(742)
+__webpack_require__(744)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(255),
+  __webpack_require__(256),
   /* template */
   null,
   /* scopeId */
@@ -6228,16 +6352,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 704:
+/***/ 706:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(744)
+__webpack_require__(746)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(256),
+  __webpack_require__(257),
   /* template */
   null,
   /* scopeId */
@@ -6266,16 +6390,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 705:
+/***/ 707:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(743)
+__webpack_require__(745)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(257),
+  __webpack_require__(258),
   /* template */
   null,
   /* scopeId */
@@ -6304,16 +6428,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 706:
+/***/ 708:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(731)
+__webpack_require__(733)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(258),
+  __webpack_require__(259),
   /* template */
   null,
   /* scopeId */
@@ -6342,16 +6466,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 707:
+/***/ 709:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(729)
+__webpack_require__(731)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(259),
+  __webpack_require__(260),
   /* template */
   null,
   /* scopeId */
@@ -6380,16 +6504,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 708:
+/***/ 710:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(737)
+__webpack_require__(739)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(260),
+  __webpack_require__(261),
   /* template */
   null,
   /* scopeId */
@@ -6418,18 +6542,18 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 709:
+/***/ 711:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(739)
+__webpack_require__(741)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(261),
+  __webpack_require__(262),
   /* template */
-  __webpack_require__(721),
+  __webpack_require__(723),
   /* scopeId */
   null,
   /* cssModules */
@@ -6457,16 +6581,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 710:
+/***/ 712:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(728)
+__webpack_require__(730)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(262),
+  __webpack_require__(263),
   /* template */
   null,
   /* scopeId */
@@ -6495,16 +6619,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 711:
+/***/ 713:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(736)
+__webpack_require__(738)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(263),
+  __webpack_require__(264),
   /* template */
   null,
   /* scopeId */
@@ -6533,16 +6657,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 712:
+/***/ 714:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(730)
+__webpack_require__(732)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(264),
+  __webpack_require__(265),
   /* template */
   null,
   /* scopeId */
@@ -6571,16 +6695,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 713:
+/***/ 715:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(741)
+__webpack_require__(743)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(265),
+  __webpack_require__(266),
   /* template */
   null,
   /* scopeId */
@@ -6609,16 +6733,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 714:
+/***/ 716:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(727)
+__webpack_require__(729)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(266),
+  __webpack_require__(267),
   /* template */
   null,
   /* scopeId */
@@ -6647,16 +6771,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 715:
+/***/ 717:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(734)
+__webpack_require__(736)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(267),
+  __webpack_require__(268),
   /* template */
   null,
   /* scopeId */
@@ -6685,18 +6809,18 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 716:
+/***/ 718:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(738)
+__webpack_require__(740)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(268),
+  __webpack_require__(269),
   /* template */
-  __webpack_require__(720),
+  __webpack_require__(722),
   /* scopeId */
   null,
   /* cssModules */
@@ -6724,16 +6848,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 717:
+/***/ 719:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(725)
+__webpack_require__(727)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(269),
+  __webpack_require__(270),
   /* template */
   null,
   /* scopeId */
@@ -6762,16 +6886,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 718:
+/***/ 720:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(735)
+__webpack_require__(737)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(270),
+  __webpack_require__(271),
   /* template */
   null,
   /* scopeId */
@@ -6800,16 +6924,16 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 719:
+/***/ 721:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(745)
+__webpack_require__(747)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(271),
+  __webpack_require__(272),
   /* template */
   null,
   /* scopeId */
@@ -6838,7 +6962,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 720:
+/***/ 722:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6858,7 +6982,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 721:
+/***/ 723:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6882,7 +7006,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 722:
+/***/ 724:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -6906,7 +7030,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('vl-interaction-select', {
     ref: "select",
     attrs: {
-      "selected": _vm.selected
+      "selected": _vm.selected,
+      "filter": _vm.selectFilter
     },
     on: {
       "select": _vm.select,
@@ -6962,7 +7087,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "coordinates": feature.geometry.coordinates
       }
-    }), _vm._v(" "), (feature.properties.color && !_vm.selected.includes(feature.id)) ? _c('vl-style-container', [_c('vl-style-stroke', {
+    }), _vm._v(" "), (!_vm.selectedIds.includes(feature.id) && feature.properties.color) ? _c('vl-style-container', [_c('vl-style-stroke', {
       attrs: {
         "color": "#8856a7",
         "width": 2
@@ -6971,7 +7096,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "color": feature.properties.color
       }
-    })], 1) : _vm._e(), _vm._v(" "), (_vm.selected.includes(feature.id) && feature.properties.selectColor) ? _c('vl-style-container', [_c('vl-style-stroke', {
+    })], 1) : _vm._e(), _vm._v(" "), (_vm.selectedIds.includes(feature.id) && feature.properties.selectColor) ? _c('vl-style-container', [_c('vl-style-stroke', {
       attrs: {
         "color": "#8856a7",
         "width": 2
@@ -7008,7 +7133,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }))], 1) : _vm._e(), _vm._v(" "), (_vm.position.length) ? _c('vl-layer-vector', {
     attrs: {
       "id": "my-position",
-      "z-index": 100
+      "z-index": 100,
+      "overlay": true
     }
   }, [_c('vl-style-container', [_c('vl-style-icon', {
     attrs: {
@@ -7018,7 +7144,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })], 1), _vm._v(" "), _c('vl-source-vector', [_c('vl-feature', {
     attrs: {
-      "id": "my-position"
+      "id": "my-position",
+      "z-index": 999
     }
   }, [_c('vl-geom-point', {
     attrs: {
@@ -7039,7 +7166,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.showSourceCode
     }
-  }, [_vm._v("Show usage info / example source code")]), _vm._v(" "), _c('hr'), _vm._v("\n      Center: " + _vm._s(_vm.center.map(function (x) { return parseFloat(x.toPrecision(6)); })) + " Zoom: " + _vm._s(_vm.zoom) + " Rotation " + _vm._s(_vm.rotation)), _c('br'), _vm._v("\n      My position: " + _vm._s(_vm.position.map(function (x) { return parseFloat(x.toPrecision(6)); }))), _c('br'), _vm._v("\n      Current selection: " + _vm._s(_vm.selected) + "\n    ")], 2), _vm._v(" "), _c('transition', {
+  }, [_vm._v("Show usage info / example source code")]), _vm._v(" "), _c('hr'), _vm._v("\n      Center: " + _vm._s(_vm.center.map(function (x) { return parseFloat(x.toPrecision(6)); })) + " Zoom: " + _vm._s(_vm.zoom) + " Rotation " + _vm._s(_vm.rotation)), _c('br'), _vm._v("\n      My position: " + _vm._s(_vm.position.map(function (x) { return parseFloat(x.toPrecision(6)); }))), _c('br'), _vm._v("\n      Current selection: " + _vm._s(_vm.selectedIds) + "\n    ")], 2), _vm._v(" "), _c('transition', {
     attrs: {
       "name": "slide"
     }
@@ -7090,9 +7217,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "javascript jsx"
   }, [_vm._v("\nimport Vue from 'vue'\nimport { Map, MapView, LayerTile, SourceOsm } from 'vuelayers'\n\nVue.use(Map)\nVue.use(MapView)\nVue.use(LayerTile)\nVue.use(SourceOsm)\n\nnew Vue({\n  el: '#app',\n  render: h => h(App)\n})\n        ")])]), _vm._v(" "), _c('p', [_c('strong', [_vm._v("Note")]), _vm._v(": the above library setup automatically imports CSS files")]), _vm._v(" "), _c('h2', [_vm._v("Demo source code")]), _vm._v(" "), _c('h3', [_vm._v("HTML")]), _vm._v(" "), _c('pre', [_c('code', {
     staticClass: "xml"
-  }, [_vm._v("\n<vl-map>\n  <vl-map-view :center=\"center\" :zoom=\"zoom\" :rotation=\"rotation\" @change=\"updateMapView\"/>\n  <vl-geoloc @change=\"updateGeoloc\"/>\n\n  <!-- interactions -->\n  <vl-interaction-select ref=\"select\" :selected=\"selected\" @select=\"select\" @unselect=\"unselect\">\n    <vl-style-container>\n      <vl-style-stroke color=\"#f03b20\" :width=\"3\"/>\n      <vl-style-fill :color=\"[254, 178, 76, 0.7]\"/>\n    </vl-style-container>\n  </vl-interaction-select>\n  <!-- interactions -->\n\n  <!-- base layers -->\n  <vl-layer-tile id=\"osm\" :visible=\"layers.osm\">\n    <vl-source-osm/>\n  </vl-layer-tile>\n\n  <vl-layer-tile id=\"mapbox\" :visible=\"layers.mapbox\">\n    <vl-source-mapbox map-id=\"ghettovoice.nbm2olb0\"\n                      access-token=\"pk.eyJ1IjoiZ2hldHRvdm9pY2UiLCJhIjoiMzMxYzMyMWQ3NTgzMTU4Nzk3ZTNmMmI3MmQ1NmVhMjgifQ._erAEzdvdB0jfYXXqzOJCg\"/>\n  </vl-layer-tile>\n  <!-- base layers -->\n\n  <!-- countries vector -->\n  <vl-layer-vector id=\"countries\" v-if=\"countries.length\" :visible=\"layers.countries\">\n    <!-- layer level style -->\n    <vl-style-container>\n      <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n      <vl-style-fill :color=\"[158, 188, 218, 0.5]\"/>\n    </vl-style-container>\n    <!-- layer level style -->\n\n    <vl-source-vector>\n      <vl-feature v-for=\"feature in countries\" :key=\"feature.id\" :id=\"feature.id\" :data=\"feature.properties\">\n        <component :is=\"geometryTypeToCompName(feature.geometry.type)\" :coordinates=\"feature.geometry.coordinates\"/>\n\n        <!-- feature level style -->\n        <vl-style-container v-if=\"feature.properties.color && !selected.includes(feature.id)\">\n          <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n          <vl-style-fill :color=\"feature.properties.color\"/>\n        </vl-style-container>\n\n        <vl-style-container v-if=\"selected.includes(feature.id) && feature.properties.selectColor\">\n          <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n          <vl-style-fill :color=\"feature.properties.selectColor\"/>\n        </vl-style-container>\n        <!-- feature level style -->\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!-- countries vector -->\n\n  <!-- pacman, use v-style-func for advanced styling -->\n  <vl-layer-vector id=\"pacman\" v-if=\"pacman.length\" v-style-func=\"pacmanStyleFunc\" :visible=\"layers.pacman\">\n    <vl-source-vector>\n      <vl-feature v-for=\"feature in pacman\" :key=\"feature.id\" :id=\"feature.id\" :data=\"feature.properties\">\n        <component :is=\"geometryTypeToCompName(feature.geometry.type)\" :coordinates=\"feature.geometry.coordinates\"/>\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!-- pacman -->\n\n  <!-- position -->\n  <vl-layer-vector v-if=\"position.length\" id=\"my-position\" :z-index=\"100\">\n    <vl-style-container>\n      <vl-style-icon src=\"/static/marker.png\" :scale=\"0.3\" :anchor=\"[0.5, 1]\"/>\n    </vl-style-container>\n\n    <vl-source-vector>\n      <vl-feature id=\"my-position\">\n        <vl-geom-point :coordinates=\"position\"/>\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!-- position -->\n</vl-map>\n        ")])]), _vm._v(" "), _c('h3', [_vm._v("JavaScript")]), _vm._v(" "), _c('pre', [_c('code', {
+  }, [_vm._v("\n<vl-map>\n  <vl-map-view :center=\"center\" :zoom=\"zoom\" :rotation=\"rotation\" @change=\"updateMapView\"/>\n  <vl-geoloc @change=\"updateGeoloc\"/>\n\n  <!-- interactions -->\n  <vl-interaction-select ref=\"select\" :selected=\"selected\" @select=\"select\" @unselect=\"unselect\"\n                         :filter=\"selectFilter\">\n    <vl-style-container>\n      <vl-style-stroke color=\"#f03b20\" :width=\"3\"/>\n      <vl-style-fill :color=\"[254, 178, 76, 0.7]\"/>\n    </vl-style-container>\n  </vl-interaction-select>\n  <!--// interactions -->\n\n  <!-- base layers -->\n  <vl-layer-tile id=\"osm\" :visible=\"layers.osm\">\n    <vl-source-osm/>\n  </vl-layer-tile>\n\n  <vl-layer-tile id=\"mapbox\" :visible=\"layers.mapbox\">\n    <vl-source-mapbox map-id=\"ghettovoice.nbm2olb0\"\n                      access-token=\"pk.eyJ1IjoiZ2hldHRvdm9pY2UiLCJhIjoiMzMxYzMyMWQ3NTgzMTU4Nzk3ZTNmMmI3MmQ1NmVhMjgifQ._erAEzdvdB0jfYXXqzOJCg\"/>\n  </vl-layer-tile>\n  <!--// base layers -->\n\n  <!-- countries vector -->\n  <vl-layer-vector id=\"countries\" v-if=\"countries.length\" :visible=\"layers.countries\">\n    <!-- layer level style -->\n    <vl-style-container>\n      <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n      <vl-style-fill :color=\"[158, 188, 218, 0.5]\"/>\n    </vl-style-container>\n    <!--// layer level style -->\n\n    <vl-source-vector>\n      <vl-feature v-for=\"feature in countries\" :key=\"feature.id\" :id=\"feature.id\" :data=\"feature.properties\">\n        <component :is=\"geometryTypeToCompName(feature.geometry.type)\" :coordinates=\"feature.geometry.coordinates\"/>\n\n        <!-- feature level style -->\n        <vl-style-container v-if=\"!selectedIds.includes(feature.id) && feature.properties.color\">\n          <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n          <vl-style-fill :color=\"feature.properties.color\"/>\n        </vl-style-container>\n\n        <vl-style-container v-if=\"selectedIds.includes(feature.id) && feature.properties.selectColor\">\n          <vl-style-stroke color=\"#8856a7\" :width=\"2\"/>\n          <vl-style-fill :color=\"feature.properties.selectColor\"/>\n        </vl-style-container>\n        <!-- feature level style -->\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!--// countries vector -->\n\n  <!-- pacman, use v-style-func for advanced styling -->\n  <vl-layer-vector id=\"pacman\" v-if=\"pacman.length\" v-style-func=\"pacmanStyleFunc\" :visible=\"layers.pacman\">\n    <vl-source-vector>\n      <vl-feature v-for=\"feature in pacman\" :key=\"feature.id\" :id=\"feature.id\" :data=\"feature.properties\">\n        <component :is=\"geometryTypeToCompName(feature.geometry.type)\" :coordinates=\"feature.geometry.coordinates\"/>\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!--// pacman -->\n\n  <!-- current position overlay -->\n  <vl-layer-vector v-if=\"position.length\" id=\"my-position\" :z-index=\"100\" :overlay=\"true\">\n    <vl-style-container>\n      <vl-style-icon src=\"static/img/marker.png\" :scale=\"0.3\" :anchor=\"[0.5, 1]\"/>\n    </vl-style-container>\n\n    <vl-source-vector>\n      <vl-feature id=\"my-position\" :z-index=\"999\">\n        <vl-geom-point :coordinates=\"position\"/>\n      </vl-feature>\n    </vl-source-vector>\n  </vl-layer-vector>\n  <!--// current position overlay -->\n</vl-map>\n        ")])]), _vm._v(" "), _c('h3', [_vm._v("JavaScript")]), _vm._v(" "), _c('pre', [_c('code', {
     staticClass: "javascript jsx"
-  }, [_vm._v("\nimport 'whatwg-fetch'\nimport { kebabCase } from 'lodash/fp'\n\nconst methods = {\n  geometryTypeToCompName (type) {\n    return 'vl-geom-' + kebabCase(type)\n  },\n  updateMapView ({ center, zoom, rotation }) {\n    this.center = center\n    this.zoom = zoom\n    this.rotation = rotation\n  },\n  updateGeoloc ({ position }) {\n    this.position = position\n  },\n  select (id) {\n    if (this.selected.indexOf(id) === -1) {\n      this.selected.push(id)\n    }\n  },\n  unselect (id) {\n    const i = this.selected.indexOf(id)\n    if (i !== -1) {\n      this.selected.splice(i, 1)\n    }\n  },\n  async loadData () {\n    const res = await fetch('https://openlayers.org/en/latest/examples/data/geojson/countries.geojson')\n    const geomCollection = await res.json()\n    this.countries = geomCollection.features.map((feature, i) => {\n      feature.properties = {\n        ...feature.properties,\n        color: i % 2 === 0 ? [ 49, 163, 84, 0.7 ] : undefined,\n        selectColor: i % 2 !== 0 ? [ 221, 28, 119, 0.9 ] : undefined\n      }\n\n      return feature\n    })\n\n    return this.countries\n  },\n  /**\n   * Style function factory, use with v-style-func directive to apply complex stylings with OpenLayers native API.\n   */\n  pacmanStyleFunc (ol, styleHelper) {\n    const pacman = [\n      new ol.style.Style({\n        stroke: new ol.style.Stroke({\n          color: '#DE9147',\n          width: 3\n        }),\n        fill: new ol.style.Fill({\n          color: [ 222, 189, 36, 0.8 ]\n        })\n      })\n    ]\n    const path = [\n      new ol.style.Style({\n        stroke: new ol.style.Stroke({\n          color: 'blue',\n          width: 1\n        })\n      }),\n      new ol.style.Style({\n        image: new ol.style.Circle({\n          radius: 5,\n          fill: new ol.style.Fill({\n            color: 'orange'\n          })\n        }),\n        geometry (feature) {\n          return new ol.geom.MultiPoint(feature.getGeometry().getCoordinates())\n        }\n      })\n    ]\n    const eye = [\n      new ol.style.Style({\n        image: new ol.style.Circle({\n          radius: 6,\n          fill: new ol.style.Fill({\n            color: '#444444'\n          })\n        })\n      })\n    ]\n\n    return function __pacmanStyleFunc (feature, resolution) {\n      switch (feature.getId()) {\n        case 'pacman':\n          return pacman\n        case 'pacman-path':\n          return path\n        case 'pacman-eye':\n          return eye\n      }\n    }\n  },\n  toggleLayer (layer) {\n    this.layers[ layer ] = !this.layers[ layer ]\n  }\n}\n\nexport default {\n  name: 'app',\n  methods,\n  data () {\n    return {\n      zoom: 2,\n      center: [ 0, 0 ],\n      rotation: 0,\n      selected: [],\n      countries: [],\n      pacman: require('../static/pacman.geojson').features,\n      position: [],\n      layers: {\n        osm: false,\n        mapbox: true,\n        countries: true,\n        pacman: false\n      }\n    }\n  },\n  created () {\n    this.loadData()\n      .catch(::console.error)\n  }\n}\n        ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\nimport 'whatwg-fetch'\nimport { kebabCase, forEach } from 'lodash/fp'\n\nconst computed = {\n  selectedIds () {\n    return this.selected.map(({ id }) => id)\n  }\n}\n\nconst methods = {\n  geometryTypeToCompName (type) {\n    return 'vl-geom-' + kebabCase(type)\n  },\n  updateMapView ({ center, zoom, rotation }) {\n    this.center = center\n    this.zoom = zoom\n    this.rotation = rotation\n  },\n  updateGeoloc ({ position }) {\n    this.position = position\n  },\n  select (plainFeature) {\n    const i = this.selectedIds.indexOf(plainFeature.id)\n    if (i === -1) {\n      this.selected.push(plainFeature)\n    }\n  },\n  unselect ({ id }) {\n    const i = this.selectedIds.indexOf(id)\n    if (i !== -1) {\n      this.selected.splice(i, 1)\n    }\n  },\n  async loadData () {\n    const res = await fetch('https://openlayers.org/en/latest/examples/data/geojson/countries.geojson')\n    const geomCollection = await res.json()\n    this.countries = geomCollection.features.map((feature, i) => {\n      feature.properties = {\n        ...feature.properties,\n        color: i % 2 === 0 ? [ 49, 163, 84, 0.7 ] : undefined,\n        selectColor: i % 2 !== 0 ? [ 221, 28, 119, 0.9 ] : undefined\n      }\n\n      return feature\n    })\n\n    return this.countries\n  },\n  pacmanStyleFunc (ol, styleHelper) {\n    const pacman = [\n      new ol.style.Style({\n        stroke: new ol.style.Stroke({\n          color: '#DE9147',\n          width: 3\n        }),\n        fill: new ol.style.Fill({\n          color: [ 222, 189, 36, 0.8 ]\n        })\n      })\n    ]\n    const path = [\n      new ol.style.Style({\n        stroke: new ol.style.Stroke({\n          color: 'blue',\n          width: 1\n        })\n      }),\n      new ol.style.Style({\n        image: new ol.style.Circle({\n          radius: 5,\n          fill: new ol.style.Fill({\n            color: 'orange'\n          })\n        }),\n        geometry (feature) {\n          return new ol.geom.MultiPoint(feature.getGeometry().getCoordinates())\n        }\n      })\n    ]\n    const eye = [\n      new ol.style.Style({\n        image: new ol.style.Circle({\n          radius: 6,\n          fill: new ol.style.Fill({\n            color: '#444444'\n          })\n        })\n      })\n    ]\n\n    return function __pacmanStyleFunc (feature, resolution) {\n      switch (feature.getId()) {\n        case 'pacman':\n          return pacman\n        case 'pacman-path':\n          return path\n        case 'pacman-eye':\n          return eye\n      }\n    }\n  },\n  toggleLayer (layer) {\n    this.layers[ layer ] = !this.layers[ layer ]\n  },\n  selectFilter (feature) {\n    return feature.layer !== 'my-position'\n  }\n}\n\nexport default {\n  name: 'app',\n  computed,\n  methods,\n  data () {\n    return {\n      zoom: 2,\n      center: [ 0, 0 ],\n      rotation: 0,\n      selected: [],\n      countries: [],\n      pacman: require('../static/pacman.geojson').features,\n      position: [],\n      layers: {\n        osm: false,\n        mapbox: true,\n        countries: true,\n        pacman: false\n      }\n    }\n  },\n  created () {\n    this.loadData()\n      .catch(::console.error)\n  }\n}\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "controls"
   }, [_c('button', {
     on: {
@@ -7112,7 +7239,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 723:
+/***/ 725:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -7134,13 +7261,13 @@ if (false) {
 
 /***/ }),
 
-/***/ 724:
+/***/ 726:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(318);
+var content = __webpack_require__(319);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7161,13 +7288,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 725:
+/***/ 727:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(319);
+var content = __webpack_require__(320);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7188,13 +7315,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 726:
+/***/ 728:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(320);
+var content = __webpack_require__(321);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7215,13 +7342,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 727:
+/***/ 729:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(321);
+var content = __webpack_require__(322);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7242,60 +7369,6 @@ if(false) {
 
 /***/ }),
 
-/***/ 728:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(322);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("5fd7e5e8", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-1c0edbc1\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./view.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-1c0edbc1\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./view.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 729:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(323);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("d477d128", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-20415277\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./layer.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-20415277\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./layer.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
 /***/ 73:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7306,7 +7379,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _v = __webpack_require__(212);
+var _v = __webpack_require__(213);
 
 var _v2 = _interopRequireDefault(_v);
 
@@ -7344,6 +7417,10 @@ var props = {
   zIndex: {
     type: Number,
     default: 0
+  },
+  overlay: {
+    type: Boolean,
+    default: false
   }
 };
 
@@ -7377,7 +7454,11 @@ var methods = {
    */
   mountLayer: function mountLayer() {
     if (this.map()) {
-      this.map().addLayer(this.layer);
+      if (this.overlay) {
+        this.layer.setMap(this.map());
+      } else {
+        this.map().addLayer(this.layer);
+      }
       this.subscribeAll();
     } else if (false) {
       (0, _debug.warn)("Invalid usage of map component, should have layer component among it's ancestors");
@@ -7389,7 +7470,13 @@ var methods = {
    */
   unmountLayer: function unmountLayer() {
     this.unsubscribeAll();
-    this.map() && this.map().removeLayer(this.layer);
+    if (this.map()) {
+      if (this.overlay) {
+        this.layer.setMap(undefined);
+      } else {
+        this.map().removeLayer(this.layer);
+      }
+    }
   }
 };
 
@@ -7437,11 +7524,15 @@ exports.default = {
     this.initialize();
   },
   mounted: function mounted() {
-    this.mountLayer();
+    this.$nextTick(this.mountLayer);
   },
   destroyed: function destroyed() {
-    this.unmountLayer();
-    this.layer = undefined;
+    var _this2 = this;
+
+    this.$nextTick(function () {
+      _this2.unmountLayer();
+      _this2.layer = undefined;
+    });
   }
 };
 
@@ -7453,7 +7544,61 @@ exports.default = {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
+var content = __webpack_require__(323);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("5fd7e5e8", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-1c0edbc1\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./view.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-1c0edbc1\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./view.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 731:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
 var content = __webpack_require__(324);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("d477d128", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-20415277\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./layer.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-20415277\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./layer.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 732:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(325);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7474,13 +7619,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 731:
+/***/ 733:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(325);
+var content = __webpack_require__(326);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7501,13 +7646,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 732:
+/***/ 734:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(326);
+var content = __webpack_require__(327);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7528,13 +7673,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 733:
+/***/ 735:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(327);
+var content = __webpack_require__(328);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7555,13 +7700,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 734:
+/***/ 736:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(328);
+var content = __webpack_require__(329);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7582,13 +7727,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 735:
+/***/ 737:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(329);
+var content = __webpack_require__(330);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7609,13 +7754,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 736:
+/***/ 738:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(330);
+var content = __webpack_require__(331);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7636,13 +7781,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 737:
+/***/ 739:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(331);
+var content = __webpack_require__(332);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7653,60 +7798,6 @@ if(false) {
  if(!content.locals) {
    module.hot.accept("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-53ea49e8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./layer.vue", function() {
      var newContent = require("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-53ea49e8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./layer.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 738:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(332);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("f6818f96", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-5417799c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./container.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-5417799c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./container.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 739:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(333);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("2962a994", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-61f65070\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./map.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-61f65070\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./map.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -7823,11 +7914,15 @@ exports.default = {
     this.initialize();
   },
   mounted: function mounted() {
-    this.mountSource();
+    this.$nextTick(this.mountSource);
   },
   destroyed: function destroyed() {
-    this.unmountSource();
-    this.source = undefined;
+    var _this2 = this;
+
+    this.$nextTick(function () {
+      _this2.unmountSource();
+      _this2.source = undefined;
+    });
   }
 };
 
@@ -7839,7 +7934,61 @@ exports.default = {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
+var content = __webpack_require__(333);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("f6818f96", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-5417799c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./container.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-5417799c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./container.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 741:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
 var content = __webpack_require__(334);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("2962a994", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-61f65070\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./map.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/style-rewriter.js?{\"id\":\"data-v-61f65070\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./map.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 742:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(335);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7860,13 +8009,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 741:
+/***/ 743:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(335);
+var content = __webpack_require__(336);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7887,13 +8036,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 742:
+/***/ 744:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(336);
+var content = __webpack_require__(337);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7914,13 +8063,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 743:
+/***/ 745:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(337);
+var content = __webpack_require__(338);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7941,13 +8090,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 744:
+/***/ 746:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(338);
+var content = __webpack_require__(339);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7968,13 +8117,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 745:
+/***/ 747:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(339);
+var content = __webpack_require__(340);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -7995,13 +8144,13 @@ if(false) {
 
 /***/ }),
 
-/***/ 746:
+/***/ 748:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(340);
+var content = __webpack_require__(341);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -8019,31 +8168,6 @@ if(false) {
  // When the module is disposed, remove the <style> tags
  module.hot.dispose(function() { update(); });
 }
-
-/***/ }),
-
-/***/ 749:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__src__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__app__);
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_vue__["default"].use(__WEBPACK_IMPORTED_MODULE_1__src___default.a)
-
-/* eslint-disable no-new */
-new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
-  el: '#app',
-  render: h => h(__WEBPACK_IMPORTED_MODULE_2__app___default.a)
-})
-
 
 /***/ }),
 
@@ -8079,8 +8203,12 @@ var methods = {
     this.setImage(undefined);
   },
   refresh: function refresh() {
-    this.initialize();
-    styleRefresh.call(this);
+    var _this = this;
+
+    this.$nextTick(function () {
+      _this.initialize();
+      styleRefresh.call(_this);
+    });
   }
 };
 
@@ -8099,6 +8227,31 @@ exports.default = {
 
 /***/ }),
 
+/***/ 751:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__src__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__app__);
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue__["default"].use(__WEBPACK_IMPORTED_MODULE_1__src___default.a)
+
+/* eslint-disable no-new */
+new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
+  el: '#app',
+  render: h => h(__WEBPACK_IMPORTED_MODULE_2__app___default.a)
+})
+
+
+/***/ }),
+
 /***/ 76:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8113,11 +8266,11 @@ var _keys = __webpack_require__(128);
 
 var _keys2 = _interopRequireDefault(_keys);
 
-var _templateSettings2 = __webpack_require__(642);
+var _templateSettings2 = __webpack_require__(645);
 
 var _templateSettings3 = _interopRequireDefault(_templateSettings2);
 
-var _isString2 = __webpack_require__(639);
+var _isString2 = __webpack_require__(641);
 
 var _isString3 = _interopRequireDefault(_isString2);
 
@@ -8207,15 +8360,15 @@ var _consts2 = __webpack_require__(48);
 
 var _consts = _interopRequireWildcard(_consts2);
 
-var _helpers2 = __webpack_require__(246);
+var _helpers2 = __webpack_require__(247);
 
 var _helpers = _interopRequireWildcard(_helpers2);
 
-var _style2 = __webpack_require__(247);
+var _style2 = __webpack_require__(248);
 
 var _style = _interopRequireWildcard(_style2);
 
-var _coord2 = __webpack_require__(245);
+var _coord2 = __webpack_require__(246);
 
 var _coord = _interopRequireWildcard(_coord2);
 
@@ -8231,5 +8384,5 @@ exports.coord = _coord;
 
 /***/ })
 
-},[749]);
-//# sourceMappingURL=app.d6c04f7a02936199460f.js.map
+},[751]);
+//# sourceMappingURL=app.f66d6272a078f606396a.js.map
