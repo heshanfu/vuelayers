@@ -766,7 +766,7 @@ var flatComponents = (0, _extends3.default)({}, (0, _func.omit)(keys, components
 
 exports.default = (0, _extends3.default)({
   PKG_NAME: "VueLayers",
-  VERSION: "0.2.0"
+  VERSION: "0.3.0"
 }, flatComponents, {
   install: function install(Vue) {
     (0, _func.forEach)(function (component, key) {
@@ -9021,4 +9021,4 @@ exports.default = _Observable.Observable; /**
 /***/ })
 
 },[813]);
-//# sourceMappingURL=app.e7bfa2f4b7847d0fe501.js.map
+//# sourceMappingURL=app.c916bae6501c14fb421b.js.map
