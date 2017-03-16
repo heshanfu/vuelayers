@@ -766,7 +766,7 @@ var flatComponents = (0, _extends3.default)({}, (0, _func.omit)(keys, components
 
 exports.default = (0, _extends3.default)({
   PKG_NAME: "VueLayers",
-  VERSION: "0.3.1"
+  VERSION: "0.4.0"
 }, flatComponents, {
   install: function install(Vue) {
     (0, _func.forEach)(function (component, key) {
@@ -1401,8 +1401,8 @@ exports.LayerVector = _vector2.default;
 exports.LayerTile = _tile2.default;
 var mixins = exports.mixins = {
   layer: _layer2.default,
-  layerTileBase: _tileBase2.default,
-  layerVectorBase: _vectorBase2.default
+  layerTile: _tileBase2.default,
+  layerVector: _vectorBase2.default
 };
 
 /***/ }),
@@ -1540,10 +1540,10 @@ exports.SourceMapbox = _mapbox2.default;
 exports.SourceWms = _wms2.default;
 var mixins = exports.mixins = {
   source: _source2.default,
-  sourceVectorBase: _vectorBase2.default,
-  sourceTileBase: _tileBase2.default,
-  sourceXyzBase: _xyzBase2.default,
-  sourceWmsBase: _wmsBase2.default
+  sourceVector: _vectorBase2.default,
+  sourceTile: _tileBase2.default,
+  sourceXyz: _xyzBase2.default,
+  sourceWms: _wmsBase2.default
 };
 
 /***/ }),
@@ -9021,4 +9021,4 @@ exports.default = _Observable.Observable; /**
 /***/ })
 
 },[811]);
-//# sourceMappingURL=app.98283bf8486a23c6910b.js.map
+//# sourceMappingURL=app.a6361d9ae4581572a115.js.map
