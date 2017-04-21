@@ -4,7 +4,7 @@ Vue components to work with OpenLayers
 
 @package vuelayers
 @author Vladimir Vershinin <ghettovoice@gmail.com>
-@version 0.6.0
+@version 0.6.1
 @license MIT
 @copyright (c) 2017, Vladimir Vershinin <ghettovoice@gmail.com>
 */
