@@ -1,11 +1,64 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>VueLayers demo</title><link href=css/app.07ffdbe31634610f1c2401009855d788.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=static/js/manifest.f0a0ed44936c30b2c5af.js></script><script type=text/javascript src=static/js/vendor.b3bf474488f66f2207c7.js></script><script type=text/javascript src=static/js/app.bfa7be0b52e4da677823.js></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>VueLayers.js</title><meta name=description content="Vue 2.0 components to work with OpenLayers"><meta name=keywords content="vuelayers, vuejs, vuejs plugins, vuejs components, openlayers, ol, web maps, vuejs maps"><meta name=author content="Vladimir Vershinin"><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css><link rel=apple-touch-icon sizes=57x57 href=/vuelayers/static/imgapple-touch-icon-57x57.png><link rel=apple-touch-icon sizes=60x60 href=/vuelayers/static/imgapple-touch-icon-60x60.png><link rel=apple-touch-icon sizes=72x72 href=/vuelayers/static/imgapple-touch-icon-72x72.png><link rel=apple-touch-icon sizes=76x76 href=/vuelayers/static/imgapple-touch-icon-76x76.png><link rel=apple-touch-icon sizes=114x114 href=/vuelayers/static/imgapple-touch-icon-114x114.png><link rel=apple-touch-icon sizes=120x120 href=/vuelayers/static/imgapple-touch-icon-120x120.png><link rel=apple-touch-icon sizes=144x144 href=/vuelayers/static/imgapple-touch-icon-144x144.png><link rel=apple-touch-icon sizes=152x152 href=/vuelayers/static/imgapple-touch-icon-152x152.png><link rel=apple-touch-icon sizes=180x180 href=/vuelayers/static/imgapple-touch-icon-180x180.png><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black-translucent><meta name=apple-mobile-web-app-title content=VueLayers><meta name=mobile-web-app-capable content=yes><meta name=theme-color content=#fff><meta name=application-name content=VueLayers><link rel=icon type=image/png sizes=32x32 href=/vuelayers/static/imgfavicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/vuelayers/static/imgfavicon-16x16.png><link rel="shortcut icon" href=/vuelayers/static/imgfavicon.ico><link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href=/vuelayers/static/imgapple-touch-startup-image-320x460.png><link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href=/vuelayers/static/imgapple-touch-startup-image-640x920.png><link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href=/vuelayers/static/imgapple-touch-startup-image-640x1096.png><link rel=apple-touch-startup-image media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href=/vuelayers/static/imgapple-touch-startup-image-750x1294.png><link rel=apple-touch-startup-image media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href=/vuelayers/static/imgapple-touch-startup-image-1182x2208.png><link rel=apple-touch-startup-image media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href=/vuelayers/static/imgapple-touch-startup-image-1242x2148.png><link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href=/vuelayers/static/imgapple-touch-startup-image-748x1024.png><link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href=/vuelayers/static/imgapple-touch-startup-image-768x1004.png><link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href=/vuelayers/static/imgapple-touch-startup-image-1496x2048.png><link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href=/vuelayers/static/imgapple-touch-startup-image-1536x2008.png><link rel=prefetch href=/vuelayers/static/js/0.13ce74f1ad6c8b5b1a20.js><link rel=prefetch href=/vuelayers/static/js/1.85e7971a99a9cd8a416b.js><link rel=prefetch href=/vuelayers/static/js/2.904de1cdefb8b96ee19b.js><link rel=prefetch href=/vuelayers/static/js/3.4992cfa122f45f195e6b.js><link rel=prefetch href=/vuelayers/static/js/4.555ac33f84a55db2869c.js><link href=/vuelayers/static/css/app.b872188917245c923314fb42193f0f5e.css rel=stylesheet></head><body><script>/* eslint-disable */
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'C_GOOGLE_UID', 'auto');
+    ga('send', 'pageview');
+    /* eslint-enable */</script><div id=app></div><script>/**
+ * Copyright 2015 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License")
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-  ga('create', 'UA-98870917-1', 'auto');
-  ga('send', 'pageview');
+/* eslint-env browser */
+'use strict'
 
-</script></body></html>
+if ('serviceWorker' in navigator) {
+  // Your service-worker.js *must* be located at the top-level directory relative to your site.
+  // It won't be able to control pages unless it's located at the same level or higher than them.
+  // *Don't* register service worker file in, e.g., a scripts/ sub-directory!
+  // See https://github.com/slightlyoff/ServiceWorker/issues/468
+  navigator.serviceWorker.register('service-worker.js').then(function (reg) {
+    // updatefound is fired if service-worker.js changes.
+    reg.onupdatefound = function () {
+      // The updatefound event implies that reg.installing is set see
+      // https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#service-worker-container-updatefound-event
+      var installingWorker = reg.installing
+
+      installingWorker.onstatechange = function () {
+        switch (installingWorker.state) {
+          case 'installed':
+            if (navigator.serviceWorker.controller) {
+              // At this point, the old content will have been purged and the fresh content will
+              // have been added to the cache.
+              // It's the perfect time to display a "New content is available please refresh."
+              // message in the page's interface.
+              console.log('New or updated content is available.')
+            } else {
+              // At this point, everything has been precached.
+              // It's the perfect time to display a "Content is cached for offline use." message.
+              console.log('Content is now available offline!')
+            }
+            break
+
+          case 'redundant':
+            console.error('The installing service worker became redundant.')
+            break
+        }
+      }
+    }
+  }).catch(function (e) {
+    console.error('Error during service worker registration:', e)
+  })
+}</script><script type=text/javascript src=/vuelayers/static/js/manifest.4e561f088948bab9e7ed.js></script><script type=text/javascript src=/vuelayers/static/js/vendor.f8a5aee4d1720327adcc.js></script><script type=text/javascript src=/vuelayers/static/js/app.27e9e51423bcbb4bc1b4.js></script></body></html>
