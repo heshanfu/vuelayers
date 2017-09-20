@@ -2,7 +2,6 @@ title: VueLayers
 description: VueLayers - Vue 2 components to work with OpenLayers
 encoding: UTF-8
 theme: jekyll-theme-primer
+
 gems:
-  - jekyll-redirect-from
-plugins:
   - jekyll-redirect-from
